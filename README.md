@@ -41,8 +41,8 @@ Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
 
 | Parámetro | Valor por Defecto | Descripción |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Controla la suavidad. Un valor más bajo hace que el fade sea más lento. |
-| **delay** | `0.1` | El "escalonamiento". Tiempo de espera entre la aparición de cada letra. |
+| **speed** | `2.0` | Un valor más bajo hace que el fade sea más lento. |
+| **delay** | `0.1` | Tiempo de espera entre la aparición de cada letra. |
 | **wait** | `0.0` | Segundos que esperará el texto antes de empezar a mostrar la primera letra. |
 
 > **Ejemplo de uso:** > `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto que aparece suavemente[/fade_in]`
