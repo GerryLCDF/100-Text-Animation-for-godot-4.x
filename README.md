@@ -1,5 +1,5 @@
 # 102-Text-Animation-for-godot-4.x
-Una recopilación de animaciones personalizadas para utilizar en nodos `RichTextLabel`.
+Una recopilación de animaciones personalizadas para utilizar en nodos `RichTextLabel`,
 
 ---
 
@@ -47,3 +47,4 @@ Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
 
 > **Ejemplo de uso:** > `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto que aparece suavemente[/fade_in]`
 
+---
