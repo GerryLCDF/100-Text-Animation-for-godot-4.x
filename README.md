@@ -5,10 +5,10 @@ Una recopilación de animaciones personalizadas para utilizar en nodos `RichText
 
 ## 1. Fade In (Desvanecimiento)
 
-### Muestra:
+###🖼️ Muestra:
 ![Fade In ](https://github.com/user-attachments/assets/dbbaffd6-7251-4d0c-ac87-c6ca96ea7e45)
 
-### Codigo:
+###💻 Codigo:
 ```gdscript
 @tool
 class_name RichTextFadeIn
@@ -48,3 +48,48 @@ Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
 > **Ejemplo de uso:** > `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto que aparece suavemente[/fade_in]`
 
 ---
+
+
+## 2. Typewriter (Máquina de escribir)
+
+### 🖼️ Muestra:
+![Typewriter](https://github.com/user-attachments/assets/a2882d15-0181-4a03-87a3-86269749fd04)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextTypewriter
+extends RichTextEffect
+
+# ejemplo de uso [type speed=20.0]Este texto se escribe solo...[/type]
+var bbcode = "type"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 15.0) # cantidad de letras por segundo
+	var wait = char_fx.env.get("wait", 0.0)    # tiempo que debe esperar para empezar 
+	
+	# El tiempo que ha pasado para saber si se debe mostrar el siguiente 
+	var time = char_fx.elapsed_time - wait
+	var finish_time = char_fx.relative_index / speed
+	
+	if time < finish_time:
+		char_fx.color.a = 0.0
+	else:
+		char_fx.color.a = 1.0
+		
+	return true
+```
+
+### 📊 Parámetros de Configuración
+Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `15.0` | Cantidad de letras que se muestran por segundo. |
+| **wait** | `0.0` | Segundos que esperará el texto antes de empezar a escribir la primera letra. |
+
+
+> **Ejemplo de uso:** > `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto que aparece suavemente[/fade_in]`
+
+---
+
