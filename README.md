@@ -47,11 +47,3 @@ Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
 
 > **Ejemplo de uso:** > `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto que aparece suavemente[/fade_in]`
 
-
-### 🛠️ Implementación del Código
-Para usar este efecto, asegúrate de tener el siguiente script en tu proyecto:
-
-[![Ver Archivo](https://img.shields.io/badge/Ver_Código-GitHub-blue?style=for-the-badge&logo=github)](./RichTextFadeIn.gd)
-[![Descargar Script](https://img.shields.io/badge/Descargar-Script-green?style=for-the-badge&logo=godotengine)](./RichTextFadeIn.gd)
-
----
