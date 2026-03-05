@@ -6,6 +6,7 @@ Una recopilación de animaciones personalizadas para utilizar en nodos `RichText
 ## 1. Fade In (Desvanecimiento)
 
 # Muestra:
+![Fade In ](https://github.com/user-attachments/assets/dbbaffd6-7251-4d0c-ac87-c6ca96ea7e45)
 
 #codigo:
 ```gdscript
