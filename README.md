@@ -89,7 +89,54 @@ Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
 | **wait** | `0.0` | Segundos que esperará el texto antes de empezar a escribir la primera letra. |
 
 
-> **Ejemplo de uso:** > `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto que aparece suavemente[/fade_in]`
+> **Ejemplo de uso:** > `[type speed=20.0 wait=0.5]Texto de ejemplo.[/type]`
 
 ---
 
+
+## 3. Decode (Decodificación)
+
+### 🖼️ Muestra:
+![Decode](https://github.com/user-attachments/assets/6f8b64ba-ded6-412f-b2ea-f3f1a92d483f)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextDecode
+extends RichTextEffect
+
+# ejemplo de uso [decode speed=10.0 wait=0.5]si vez esto estas leyendo el codigo[/decode]
+var bbcode = "decode"
+
+const SYMBOLS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 5.0)    # velocidad en la que se reproducira la animacion
+	var wait = char_fx.env.get("wait", 0.0)      # retraso para empezar con el cambio
+	var time = char_fx.elapsed_time - wait
+	
+	# Revelar el carácter original 
+	var reveal_time = char_fx.relative_index / speed
+	
+	if time < reveal_time:
+		# Colocación de un símbolo aleatorio en base a los definidos en SYMBOLS
+		var noise = int(char_fx.elapsed_time * 25.0) + char_fx.relative_index
+		var symbol_idx = noise % SYMBOLS.length()
+		var char_unicode = SYMBOLS.unicode_at(symbol_idx)
+		char_fx.glyph_index = TextServerManager.get_primary_interface().font_get_glyph_index(char_fx.font, 1, char_unicode, 0)
+		
+	return true
+```
+
+### 📊 Parámetros de Configuración
+Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `5.0` | Velocidad a la que se revelan los caracteres originales.. |
+| **wait** | `0.0` |Segundos de espera antes de que comience el proceso de decodificación. |
+
+
+> **Ejemplo de uso:** > `[decode speed=10.0 wait=0.5]Texto ejemolo[/decode]`
+
+---
