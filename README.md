@@ -6,17 +6,6 @@ Una recopilación de animaciones personalizadas para utilizar en nodos `RichText
 ## 1. Fade In (Desvanecimiento)
 Este efecto permite que los caracteres aparezcan progresivamente, ideal para diálogos o introducciones con estilo.
 
-### 📊 Parámetros de Configuración
-Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
-
-| Parámetro | Valor por Defecto | Descripción |
-| :--- | :---: | :--- |
-| **speed** | `2.0` | Controla la suavidad. Un valor más bajo hace que el fade sea más lento. |
-| **delay** | `0.1` | El "escalonamiento". Tiempo de espera entre la aparición de cada letra. |
-| **wait** | `0.0` | Segundos que esperará el texto antes de empezar a mostrar la primera letra. |
-
-> **Ejemplo de uso:** > `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto que aparece suavemente[/fade_in]`
-
 
 
 
@@ -44,10 +33,21 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	char_fx.color.a = clamp(alpha, 0.0, 1.0)
 	
 	return true
+```
+
+### 📊 Parámetros de Configuración
+Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Controla la suavidad. Un valor más bajo hace que el fade sea más lento. |
+| **delay** | `0.1` | El "escalonamiento". Tiempo de espera entre la aparición de cada letra. |
+| **wait** | `0.0` | Segundos que esperará el texto antes de empezar a mostrar la primera letra. |
+
+> **Ejemplo de uso:** > `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto que aparece suavemente[/fade_in]`
 
 
 ### 🛠️ Implementación del Código
-
 Para usar este efecto, asegúrate de tener el siguiente script en tu proyecto:
 
 [![Ver Archivo](https://img.shields.io/badge/Ver_Código-GitHub-blue?style=for-the-badge&logo=github)](./RichTextFadeIn.gd)
