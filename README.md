@@ -1,35 +1,35 @@
-# 100-Text-Animation-for-godot-4.x
+# 102-Text-Animation-for-godot-4.x
 Una recopilación de animaciones personalizadas para utilizar en nodos `RichTextLabel`.
 
 ---
 
 ## 1. Fade In (Desvanecimiento)
-Este efecto permite que los caracteres aparezcan progresivamente, ideal para diálogos o introducciones con estilo.
 
+# Muestra:
 
-
-
+#codigo:
 ```gdscript
 @tool
 class_name RichTextFadeIn
 extends RichTextEffect
 
-# Identificador de uso: [fade_in]
+# ejemplo de uso [fade_in speed=1.0 delay=0.05]Texto que aparece[/fade_in]
 var bbcode = "fade_in"
 
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
-	# Parámetros extraídos desde el BBCode
-	var speed = char_fx.env.get("speed", 2.0)
-	var delay = char_fx.env.get("delay", 0.1)
-	var start_wait = char_fx.env.get("wait", 0.0)
+	# Parámetros desde el BBCode
+	var speed = char_fx.env.get("speed", 2.0)      # que tan rapido sera la aparicion
+	var delay = char_fx.env.get("delay", 0.1)     # tiempo a esperar para aplicara al siguienbte caracter
+	var start_wait = char_fx.env.get("wait", 0.0) # esperaaa
 	
-	# Calculamos el tiempo de inicio para este carácter específico (basado en su índice)
+	# Calculamos el tiempo de inicio para este carácter específico
 	var my_start_time = start_wait + (char_fx.relative_index * delay)
 	
-	# Calculamos el progreso del canal alfa (de 0.0 a 1.0)
+	# Calculamos el progreso del fade (de 0.0 a 1.0)
+	# Basado en cuánto tiempo ha pasado desde que "le tocaba" empezar
 	var alpha = (char_fx.elapsed_time - my_start_time) * speed
 	
-	# Aplicamos el valor final limitándolo entre 0 (invisible) y 1 (opaco)
+	# Limitamos el valor entre 0 (invisible) y 1 (opaco)
 	char_fx.color.a = clamp(alpha, 0.0, 1.0)
 	
 	return true
