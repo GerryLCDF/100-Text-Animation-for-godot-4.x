@@ -51,7 +51,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 2. Typewriter (Máquina de escribir)
 
 ### 🖼️ Muestra:
-![2](https://github.com/user-attachments/assets/028eff67-a97b-4e90-b432-c38c90c74666)
+![3](https://github.com/user-attachments/assets/2ba6c698-0bee-403d-a046-c4812c921842)
 
 ### 💻 Codigo:
 ```gdscript
@@ -93,7 +93,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 3. Decode (Decodificación)
 
 ### 🖼️ Muestra:
-![3](https://github.com/user-attachments/assets/2ba6c698-0bee-403d-a046-c4812c921842)
+![2](https://github.com/user-attachments/assets/028eff67-a97b-4e90-b432-c38c90c74666)
 
 ### 💻 Codigo:
 ```gdscript
