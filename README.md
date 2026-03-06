@@ -140,3 +140,50 @@ Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
 > **Ejemplo de uso:** > `[decode speed=10.0 wait=0.5]Texto ejemolo[/decode]`
 
 ---
+## 4. Slide Up (Desplazamiento hacia arriba)
+
+### 🖼️ Muestra:
+![4](https://github.com/user-attachments/assets/37461ac7-a1a2-4a62-94b0-92c890283c97)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextSlideUp
+extends RichTextEffect
+
+# ejemplo de uso [slide_up speed=2.0 delay=0.05 dist=20.0 wait=0.0]Slide Up Reveal[/slide_up]
+var bbcode = "slide_up"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var delay = char_fx.env.get("delay", 0.05)   # espera entre caracteres
+	var distance = char_fx.env.get("dist", 20.0) # distancia en que se desplazara
+	var wait = char_fx.env.get("wait", 0.0)      # tiempo de espera para iniciar 
+	
+	var my_start_time = wait + (char_fx.relative_index * delay)
+	var progress = (char_fx.elapsed_time - my_start_time) * speed
+	progress = clamp(progress, 0.0, 1.0)
+	
+	# Aplicar la opacidad
+	char_fx.color.a = progress
+	
+	# Animación de desplazamiento vertical
+	var offset = (1.0 - progress) * distance
+	char_fx.transform.origin.y += offset
+	
+	return true
+```
+
+### 📊 Parámetros de Configuración
+Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` |Velocidad de la transición |
+| **wait** | `0.05` |Tiempo de espera entre la animación de cada letra |
+| **dist** | `20.0` |Distancia en píxeles desde la que sube el texto. |
+| **wait** | `0.0`  |Segundos de espera globales antes de iniciar.|
+
+> **Ejemplo de uso:** > `[slide_up speed=3.0 delay=0.1 dist=30.0 wait=0.5]¡Revelando texto desde abajo![/slide_up]`
+
+---
