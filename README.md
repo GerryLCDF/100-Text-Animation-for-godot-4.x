@@ -6,7 +6,7 @@ Una recopilación de animaciones personalizadas para utilizar en nodos `RichText
 ## 1. Fade In (Desvanecimiento)
 
 ### 🖼️ Muestra:
-![Fade In ](https://github.com/user-attachments/assets/dbbaffd6-7251-4d0c-ac87-c6ca96ea7e45)
+![1](https://github.com/user-attachments/assets/28448307-3633-4301-819d-cdaf8c6a8eca)
 
 ### 💻 Codigo:
 ```gdscript
@@ -44,14 +44,14 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 | **wait** | `0.0` | Segundos que esperará el texto antes de empezar a mostrar la primera letra. |
 
 > **Ejemplo de uso:**
-> `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto que aparece suavemente[/fade_in]`
+> `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto de ejemplo.[/fade_in]`
 
 ---
 
 ## 2. Typewriter (Máquina de escribir)
 
 ### 🖼️ Muestra:
-![Typewriter](https://github.com/user-attachments/assets/a2882d15-0181-4a03-87a3-86269749fd04)
+![2](https://github.com/user-attachments/assets/028eff67-a97b-4e90-b432-c38c90c74666)
 
 ### 💻 Codigo:
 ```gdscript
@@ -93,7 +93,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 3. Decode (Decodificación)
 
 ### 🖼️ Muestra:
-![Decode](https://github.com/user-attachments/assets/6f8b64ba-ded6-412f-b2ea-f3f1a92d483f)
+![3](https://github.com/user-attachments/assets/2ba6c698-0bee-403d-a046-c4812c921842)
 
 ### 💻 Codigo:
 ```gdscript
@@ -139,7 +139,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 4. Slide Up (Desplazamiento hacia arriba)
 
 ### 🖼️ Muestra:
-![4](https://github.com/user-attachments/assets/37461ac7-a1a2-4a62-94b0-92c890283c97)
+![4](https://github.com/user-attachments/assets/827fcfa2-e7bd-45ba-b4a4-358bbb2e0ada)
 
 ### 💻 Codigo:
 ```gdscript
@@ -181,6 +181,9 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 
 ## 5. Bounce (Rebote de entrada)
 
+### 🖼️ Muestra:
+![5](https://github.com/user-attachments/assets/24904694-fbf3-4905-bfc7-679d053ffc2e)
+
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -219,6 +222,10 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 
 ## 6. Rotate In (Giro con Escala)
 
+### 🖼️ Muestra:
+![6](https://github.com/user-attachments/assets/8b653bed-ba86-4378-a0c8-84bb07d281a2)
+
+
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -252,6 +259,9 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ---
 
 ## 7. Slide Down (Caída suave)
+
+### 🖼️ Muestra:
+![7](https://github.com/user-attachments/assets/a56da7fd-c961-47fe-b308-8763a373d772)
 
 ### 💻 Codigo:
 ```gdscript
