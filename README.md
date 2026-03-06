@@ -27,7 +27,6 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	var my_start_time = start_wait + (char_fx.relative_index * delay)
 	
 	# Calculamos el progreso del fade (de 0.0 a 1.0)
-	# Basado en cuánto tiempo ha pasado desde que "le tocaba" empezar
 	var alpha = (char_fx.elapsed_time - my_start_time) * speed
 	
 	# Limitamos el valor entre 0 (invisible) y 1 (opaco)
@@ -37,7 +36,6 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ```
 
 ### 📊 Parámetros de Configuración
-Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
 
 | Parámetro | Valor por Defecto | Descripción |
 | :--- | :---: | :--- |
@@ -45,10 +43,10 @@ Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
 | **delay** | `0.1` | Tiempo de espera entre la aparición de cada letra. |
 | **wait** | `0.0` | Segundos que esperará el texto antes de empezar a mostrar la primera letra. |
 
-> **Ejemplo de uso:** > `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto que aparece suavemente[/fade_in]`
+> **Ejemplo de uso:**
+> `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto que aparece suavemente[/fade_in]`
 
 ---
-
 
 ## 2. Typewriter (Máquina de escribir)
 
@@ -81,18 +79,16 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ```
 
 ### 📊 Parámetros de Configuración
-Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
 
 | Parámetro | Valor por Defecto | Descripción |
 | :--- | :---: | :--- |
 | **speed** | `15.0` | Cantidad de letras que se muestran por segundo. |
 | **wait** | `0.0` | Segundos que esperará el texto antes de empezar a escribir la primera letra. |
 
-
-> **Ejemplo de uso:** > `[type speed=20.0 wait=0.5]Texto de ejemplo.[/type]`
+> **Ejemplo de uso:**
+> `[type speed=20.0 wait=0.5]Texto de ejemplo.[/type]`
 
 ---
-
 
 ## 3. Decode (Decodificación)
 
@@ -105,21 +101,21 @@ Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
 class_name RichTextDecode
 extends RichTextEffect
 
-# ejemplo de uso [decode speed=10.0 wait=0.5]si vez esto estas leyendo el codigo[/decode]
+# ejemplo de uso [decode speed=10.0 wait=0.5]Texto ejemplo[/decode]
 var bbcode = "decode"
 
 const SYMBOLS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()"
 
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
-	var speed = char_fx.env.get("speed", 5.0)    # velocidad en la que se reproducira la animacion
-	var wait = char_fx.env.get("wait", 0.0)      # retraso para empezar con el cambio
+	var speed = char_fx.env.get("speed", 5.0)
+	var wait = char_fx.env.get("wait", 0.0)
 	var time = char_fx.elapsed_time - wait
 	
 	# Revelar el carácter original 
 	var reveal_time = char_fx.relative_index / speed
 	
 	if time < reveal_time:
-		# Colocación de un símbolo aleatorio en base a los definidos en SYMBOLS
+		# Colocación de un símbolo aleatorio
 		var noise = int(char_fx.elapsed_time * 25.0) + char_fx.relative_index
 		var symbol_idx = noise % SYMBOLS.length()
 		var char_unicode = SYMBOLS.unicode_at(symbol_idx)
@@ -129,17 +125,17 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ```
 
 ### 📊 Parámetros de Configuración
-Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
 
 | Parámetro | Valor por Defecto | Descripción |
 | :--- | :---: | :--- |
-| **speed** | `5.0` | Velocidad a la que se revelan los caracteres originales.. |
-| **wait** | `0.0` |Segundos de espera antes de que comience el proceso de decodificación. |
+| **speed** | `5.0` | Velocidad a la que se revelan los caracteres originales. |
+| **wait** | `0.0` | Segundos de espera antes de comenzar el proceso. |
 
-
-> **Ejemplo de uso:** > `[decode speed=10.0 wait=0.5]Texto ejemolo[/decode]`
+> **Ejemplo de uso:**
+> `[decode speed=10.0 wait=0.5]Texto de ejemplo.[/decode]`
 
 ---
+
 ## 4. Slide Up (Desplazamiento hacia arriba)
 
 ### 🖼️ Muestra:
@@ -161,29 +157,130 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	var wait = char_fx.env.get("wait", 0.0)      # tiempo de espera para iniciar 
 	
 	var my_start_time = wait + (char_fx.relative_index * delay)
-	var progress = (char_fx.elapsed_time - my_start_time) * speed
-	progress = clamp(progress, 0.0, 1.0)
+	var progress = clamp((char_fx.elapsed_time - my_start_time) * speed, 0.0, 1.0)
 	
-	# Aplicar la opacidad
 	char_fx.color.a = progress
-	
-	# Animación de desplazamiento vertical
-	var offset = (1.0 - progress) * distance
-	char_fx.transform.origin.y += offset
+	char_fx.transform.origin.y += (1.0 - progress) * distance
 	
 	return true
 ```
 
 ### 📊 Parámetros de Configuración
-Puedes ajustar el comportamiento del efecto directamente desde el BBCode:
 
 | Parámetro | Valor por Defecto | Descripción |
 | :--- | :---: | :--- |
-| **speed** | `2.0` |Velocidad de la transición |
-| **wait** | `0.05` |Tiempo de espera entre la animación de cada letra |
-| **dist** | `20.0` |Distancia en píxeles desde la que sube el texto. |
-| **wait** | `0.0`  |Segundos de espera globales antes de iniciar.|
+| **speed** | `2.0` | Velocidad de la transición. |
+| **delay** | `0.05` | Tiempo de espera entre la animación de cada letra. |
+| **dist** | `20.0` | Distancia en píxeles desde la que sube el texto. |
+| **wait** | `0.0` | Segundos de espera globales antes de iniciar. |
 
-> **Ejemplo de uso:** > `[slide_up speed=3.0 delay=0.1 dist=30.0 wait=0.5]¡Revelando texto desde abajo![/slide_up]`
+> **Ejemplo de uso:**
+> `[slide_up speed=3.0 delay=0.1 dist=30.0 wait=0.5]Texto de ejemplo.[/slide_up]`
 
 ---
+
+## 5. Bounce (Rebote de entrada)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextBounce
+extends RichTextEffect
+ 
+var bbcode = "bounce"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var delay = char_fx.env.get("delay", 0.08)
+	var dist = char_fx.env.get("dist", 50.0)
+	
+	var t = max(0.0, char_fx.elapsed_time - (char_fx.relative_index * delay)) * speed
+	var y = 0.0
+	if t < 1.0:
+		y = pow(2.0, -10.0 * t) * abs(cos(t * PI * 2.5)) * dist
+		char_fx.color.a = clamp(t * 5.0, 0.0, 1.0)
+	
+	char_fx.transform.origin.y -= y
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Velocidad general del rebote. |
+| **dist** | `50.0` | Altura máxima del salto inicial. |
+| **delay** | `0.08` | Tiempo de espera entre cada letra. |
+
+> **Ejemplo de uso:**
+> `[bounce speed=2.0 delay=0.08 dist=50.0]Texto de ejemplo.[/bounce]`
+
+---
+
+## 6. Rotate In (Giro con Escala)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextRotateIn
+extends RichTextEffect
+
+var bbcode = "rotate_in"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var delay = char_fx.env.get("delay", 0.05)
+	var progress = clamp((char_fx.elapsed_time - (char_fx.relative_index * delay)) * speed, 0.0, 1.0)
+	
+	char_fx.color.a = progress
+	char_fx.transform = char_fx.transform.rotated_local(lerp(-PI, 0.0, progress))
+	char_fx.transform = char_fx.transform.scaled_local(Vector2(progress, progress))
+	
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Rapidez del giro y crecimiento. |
+| **delay** | `0.05` | Escalonamiento entre caracteres. |
+
+> **Ejemplo de uso:**
+> `[rotate_in speed=2.0 delay=0.05]Texto de ejemplo.[/rotate_in]`
+
+---
+
+## 7. Slide Down (Caída suave)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextSlideDown
+extends RichTextEffect
+
+var bbcode = "slide_down"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var delay = char_fx.env.get("delay", 0.05)
+	var dist = char_fx.env.get("dist", 30.0)
+	var progress = clamp((char_fx.elapsed_time - (char_fx.relative_index * delay)) * speed, 0.0, 1.0)
+	
+	char_fx.color.a = progress
+	char_fx.transform.origin.y -= (1.0 - progress) * dist
+	
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Velocidad de la caída. |
+| **dist** | `30.0` | Distancia desde la parte superior. |
+| **delay** | `0.05` | Tiempo entre cada letra. |
+
+> **Ejemplo de uso:**
+> `[slide_down speed=2.0 delay=0.05 dist=30.0]Texto de ejemplo.[/slide_down]`
+```
