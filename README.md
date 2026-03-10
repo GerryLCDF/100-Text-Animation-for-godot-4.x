@@ -6,7 +6,7 @@ Una recopilación de animaciones personalizadas para utilizar en nodos `RichText
 ## 1. Fade In (Aparición Suave)
 
 ### 🖼️ Muestra:
-
+![1](https://github.com/user-attachments/assets/89ea952a-54c7-4d28-80e6-6ee40fb850cd)
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -44,7 +44,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 2. Typewriter (Máquina de Escribir)
 
 ### 🖼️ Muestra:
-
+![2](https://github.com/user-attachments/assets/1ed074f3-63ca-41ee-9477-ddff1e8b3b09)
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -80,7 +80,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 3. Decode (Descifrado de Símbolos)
 
 ### 🖼️ Muestra:
-
+![3](https://github.com/user-attachments/assets/6dd7506e-947e-42ba-a4a5-8c13a443fa74)
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -120,7 +120,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 4. Slide Up (Deslizar hacia Arriba)
 
 ### 🖼️ Muestra:
-
+![4](https://github.com/user-attachments/assets/0d368e15-8347-4d72-a3b4-9768a754aa10)
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -159,7 +159,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 5. Bounce (Rebote Elástico)
 
 ### 🖼️ Muestra:
-
+![5](https://github.com/user-attachments/assets/0dd4c149-950b-4e4b-bd3c-bb59b59e71d9)
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -199,7 +199,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 6. Rotate In (Giro con Escala)
 
 ### 🖼️ Muestra:
-
+![6](https://github.com/user-attachments/assets/7d39607b-bec0-44df-a44c-2b8e72920183)
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -234,7 +234,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 7. Slide Down (Deslizar hacia Abajo)
 
 ### 🖼️ Muestra:
-
+![7](https://github.com/user-attachments/assets/4ca6df90-957e-4f2c-a449-0b931f9d4eba)
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -270,7 +270,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 8. Slide Left (Deslizar desde la Izquierda)
 
 ### 🖼️ Muestra:
-
+![8](https://github.com/user-attachments/assets/bec1595f-d6c9-41d3-9ca8-b414c7a3002e)
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -306,7 +306,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 9. Slide Right (Deslizar desde la Derecha)
 
 ### 🖼️ Muestra:
-
+![9](https://github.com/user-attachments/assets/2fdd0dfd-c39a-4fb9-b132-edd6188e4640)
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -342,7 +342,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 10. Drop In (Caída con Rebote Pesado)
 
 ### 🖼️ Muestra:
-
+![10](https://github.com/user-attachments/assets/26398767-e164-48d1-95f2-914898a5d6b0)
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -385,7 +385,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 11. Swing (Balanceo de Péndulo)
 
 ### 🖼️ Muestra:
-
+![11](https://github.com/user-attachments/assets/d5ae0b83-e516-4868-86fb-5005c6a55692)
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -424,7 +424,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ## 12. Pulse In (Pulso de Entrada)
 
 ### 🖼️ Muestra:
-
+![12](https://github.com/user-attachments/assets/c9aa3d93-2eaa-456f-93a6-a231411e1bbc)
 ### 💻 Codigo:
 ```gdscript
 @tool
@@ -459,13 +459,52 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 
 > **Ejemplo de uso:**
 > `[pulse speed=2.0 delay=0.05 scale=1.2]Texto de ejemplo.[/pulse]`
-```
+
 ---
 
 ## 13. Scale In (Aparición con Escala)
 
 ### 🖼️ Muestra:
 
+![51](https://github.com/user-attachments/assets/73ea0861-bd24-4bac-b735-0623f399ea0c)
+![50](https://github.com/user-attachments/assets/11e002b9-c30d-4553-84e7-1c1a946173ed)
+![49](https://github.com/user-attachments/assets/ba81fd7e-7be3-42fb-ba4c-c4f1fec0a692)
+![48](https://github.com/user-attachments/assets/de356825-24fa-4746-902a-9f64b87e7e83)
+![47](https://github.com/user-attachments/assets/15d630a9-2a6b-489c-a0b2-be8a0f27853c)
+![46](https://github.com/user-attachments/assets/b50cabbf-9c90-4971-bef0-70cf984b3f25)
+![45](https://github.com/user-attachments/assets/2a532ea2-b2f1-4415-b272-8afa222ba19e)
+![44](https://github.com/user-attachments/assets/41ba2f19-c208-47cc-8275-86b57a2c99fb)
+![43](https://github.com/user-attachments/assets/e6f3846d-2552-4f13-b66b-a706175acd2e)
+![42](https://github.com/user-attachments/assets/740c3ecd-c9a6-4963-bbc0-a890d45ee618)
+![41](https://github.com/user-attachments/assets/34d0ff55-7c0b-49ce-96f8-08df48a0836c)
+![40](https://github.com/user-attachments/assets/72935a67-8e75-41b3-9361-45d18fafac7e)
+![39](https://github.com/user-attachments/assets/a198a061-d7f2-4415-8d5c-2e11a1fb41e9)
+![38](https://github.com/user-attachments/assets/93c71c1d-d286-4a0d-9bee-0ac7b2f4abc9)
+![37](https://github.com/user-attachments/assets/506e1797-5176-44af-8bee-ba3a25ba48c8)
+![36](https://github.com/user-attachments/assets/1c30e3be-c638-4a3a-9fb7-a49c2d700a92)
+![35](https://github.com/user-attachments/assets/c0728403-8da7-47dd-8580-25e9c3ec6ef7)
+![34](https://github.com/user-attachments/assets/06051c89-8cd9-4912-8f86-18d5066210ec)
+![33](https://github.com/user-attachments/assets/dc9fd745-bb2b-4a0e-ab11-442240cace3b)
+![32](https://github.com/user-attachments/assets/0456bbb5-6750-48af-b403-c0b48372a6d4)
+![31](https://github.com/user-attachments/assets/fa9cdc2b-53f5-4322-9fd2-e17328d36a0e)
+![30](https://github.com/user-attachments/assets/956efa5a-a9fd-4e7f-933d-f73b52a98c6c)
+![29](https://github.com/user-attachments/assets/65661f2b-3e16-48d6-9c8d-c07e49e7b9bc)
+![28](https://github.com/user-attachments/assets/f46b66a4-5242-4bfe-9cd4-95437ca19ffe)
+![27](https://github.com/user-attachments/assets/a2c148c9-f592-4af3-ae9b-6ba495b7aa59)
+![26](https://github.com/user-attachments/assets/de1beb87-8542-439f-b2d2-d3c7446311a9)
+![25](https://github.com/user-attachments/assets/f3534b09-b810-496c-9bce-fab52a48b28f)
+![24](https://github.com/user-attachments/assets/a712e073-fa46-4d7b-a3a3-9bbcb9f8ab2b)
+![23](https://github.com/user-attachments/assets/72a32d25-2a53-44c4-82fb-9e6dbf596260)
+![22](https://github.com/user-attachments/assets/23d11673-d097-4809-b036-f648e2f4bb8b)
+![21](https://github.com/user-attachments/assets/6e36c6cc-a529-4465-bc2e-523abb7a2942)
+![20](https://github.com/user-attachments/assets/e4b47e2f-3f15-47af-aad3-ed9de12a2c43)
+![19](https://github.com/user-attachments/assets/ae09d903-b82e-4d19-bb21-cb6486f787a1)
+![18](https://github.com/user-attachments/assets/4c73261a-7873-4525-b69a-e53249c23396)
+![17](https://github.com/user-attachments/assets/9787470e-9995-4490-b196-124c045d0031)
+![16](https://github.com/user-attachments/assets/ed6eea12-c64c-4994-8b82-fd569590c838)
+![15](https://github.com/user-attachments/assets/7f0f8723-ca12-4d10-a851-de676349cbcb)
+![14](https://github.com/user-attachments/assets/0fc76db2-a538-4991-8e53-a90fc7df670b)
+![13](https://github.com/user-attachments/assets/bc057bb2-c77e-42b1-9ac4-f0e8f708bd21)
 ### 💻 Codigo:
 ```gdscript
 @tool
