@@ -1241,10 +1241,10 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 | :--- | :---: | :--- |
 | **speed** | `1.0` | Velocidad de la transición de color. |
 | **delay** | `0.05` | Desfase cromático entre letras. |
-| **c1** | `#ffffff` | Desfase cromático entre letras. |
-| **c2** | `#ff0055` | Desfase cromático entre letras. |
-| **c3** | `#00ccff` | Desfase cromático entre letras. |
-| **c_end** | `#ffffff` | Desfase cromático entre letras. |
+| **c1** | `#ffffff` | color inciar de las letras. |
+| **c2** | `#ff0055` | primer color de la introduccion. |
+| **c3** | `#00ccff` | Segundo color de la introduccion. |
+| **c_end** | `#ffffff` | el color que tendra al final el texto. |
 
 
 > **Ejemplo de uso:**
@@ -1259,23 +1259,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ### 💻 Codigo:
 ```gdscript
 @tool
-class_name RichTextColorShiftLoop extends RichTextEffect
+class_name RichTextColorShiftLoop
+extends RichTextEffect
 
 var bbcode = "c_shift_loop"
 
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	var speed = char_fx.env.get("speed", 2.0)
-	var freq = char_fx.env.get("freq", 0.5) 
-	
+	var freq = char_fx.env.get("freq", 0.2) 
+	var c1 = Color(char_fx.env.get("c1", "#ffffff")) # Color A
+	var c2 = Color(char_fx.env.get("c2", "#ff0055")) # Color B
+	var c3 = Color(char_fx.env.get("c3", "#00ccff")) # Color C
 	var shift = (char_fx.elapsed_time * speed) - (char_fx.relative_index * freq)
-	var cycle = fmod(shift, 3.0) 
+	var cycle = fposmod(shift, 3.0) 
 	
 	if cycle < 1.0:
-		char_fx.color = Color.WHITE.lerp(Color.html("#ff0055"), cycle)
+		char_fx.color = c1.lerp(c2, cycle)
 	elif cycle < 2.0:
-		char_fx.color = Color.html("#ff0055").lerp(Color.html("#00ccff"), cycle - 1.0)
+		char_fx.color = c2.lerp(c3, cycle - 1.0)
 	else:
-		char_fx.color = Color.html("#00ccff").lerp(Color.WHITE, cycle - 2.0)
+		char_fx.color = c3.lerp(c1, cycle - 2.0)
+		
 	return true
 ```
 
@@ -1285,9 +1289,12 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 | :--- | :---: | :--- |
 | **speed** | `2.0` | Velocidad del ciclo de color. |
 | **freq** | `0.5` | Distancia de color entre letras contiguas. |
+| **c1** | `#ffffff` | Primer color del bucle |
+| **c2** | `#ff0055` | Segundo color del bulce. |
+| **c3** | `#00ccff` | Tercer color del bucle. |
 
 > **Ejemplo de uso:**
-> `[c_shift_loop speed=2.0 freq=0.5]Texto de ejemplo[/c_shift_loop]`
+> `[c_shift_loop c1=#ff0000 c2=#ffaa00 c3=#ffff00 freq=0.1]TEXTO CALIENTE[/c_shift_loop]`
 
 ---
 
