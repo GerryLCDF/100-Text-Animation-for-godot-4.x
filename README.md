@@ -1205,7 +1205,8 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 ### 💻 Codigo:
 ```gdscript
 @tool
-class_name RichTextColorShiftIntro extends RichTextEffect
+class_name RichTextColorShiftIntro
+extends RichTextEffect
 
 var bbcode = "c_shift_in"
 
@@ -1213,20 +1214,24 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	var speed = char_fx.env.get("speed", 1.0)
 	var char_delay = char_fx.env.get("delay", 0.05)
 	
+	var c1 = Color(char_fx.env.get("c1", "#ffffff")) # Blanco inicial
+	var c2 = Color(char_fx.env.get("c2", "#ff0055")) # Primer cambio
+	var c3 = Color(char_fx.env.get("c3", "#00ccff")) # Segundo cambio
+	var c_end = Color(char_fx.env.get("c_end", "#ffffff")) # Color final
+	
 	var time = char_fx.elapsed_time * speed - (char_fx.relative_index * char_delay)
 	
 	if time <= 0:
 		char_fx.color.a = 0
 		return true
-		
 	if time < 0.33:
-		char_fx.color = Color.WHITE.lerp(Color.html("#ff0055"), time / 0.33)
+		char_fx.color = c1.lerp(c2, time / 0.33)
 	elif time < 0.66:
-		char_fx.color = Color.html("#ff0055").lerp(Color.html("#00ccff"), (time - 0.33) / 0.33)
+		char_fx.color = c2.lerp(c3, (time - 0.33) / 0.33)
 	else:
-		char_fx.color = Color.html("#00ccff").lerp(Color.WHITE, clamp((time - 0.66) / 0.34, 0, 1))
-	
+		char_fx.color = c3.lerp(c_end, clamp((time - 0.66) / 0.34, 0, 1))
 	char_fx.color.a = clamp(time * 5.0, 0, 1)
+	
 	return true
 ```
 
@@ -1236,9 +1241,14 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 | :--- | :---: | :--- |
 | **speed** | `1.0` | Velocidad de la transición de color. |
 | **delay** | `0.05` | Desfase cromático entre letras. |
+| **c1** | `#ffffff` | Desfase cromático entre letras. |
+| **c2** | `#ff0055` | Desfase cromático entre letras. |
+| **c3** | `#00ccff` | Desfase cromático entre letras. |
+| **c_end** | `#ffffff` | Desfase cromático entre letras. |
+
 
 > **Ejemplo de uso:**
-> `[c_shift_in speed=1.0 delay=0.05]Texto de ejemplo[/c_shift_in]`
+> `[c_shift_in c1=#05614b c2=#020e0e c3=#01de82 c_end=#ffffff speed=1.5]Texto de ejemplo[/c_shift_in]`
 
 ---
 
