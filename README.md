@@ -1,7 +1,7 @@
 # +101-Text-Animation-for-godot-4.x
 Una recopilación de animaciones personalizadas para utilizar en nodos `RichTextLabel`.
 
-como utilizar cualquiera de estos recursos ,recuerda que esto es solo un recurso si lo llegas a utilizar en alguno de tus proyectos no me molesataria que me dieras creditos ,pero siempre eres libre de no hacerlo ,
+####como utilizar cualquiera de estos recursos ,recuerda que esto es solo un recurso si lo llegas a utilizar en alguno de tus proyectos no me molesataria que me dieras creditos ,pero siempre eres libre de no hacerlo ,
 ---
 
 ## 1. Fade In (Aparición Suave)
