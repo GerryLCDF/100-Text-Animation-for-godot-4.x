@@ -1,10 +1,16 @@
-# +101-Text-Animation-for-godot-4.x
+# +101 Text Animation for Godot 4.x
 Una recopilación de animaciones personalizadas para utilizar en nodos `RichTextLabel`.
 
-####como utilizar cualquiera de estos recursos ,recuerda que esto es solo un recurso si lo llegas a utilizar en alguno de tus proyectos no me molesataria que me dieras creditos ,pero siempre eres libre de no hacerlo ,
+### Cómo utilizar estos recursos
+Recuerda que esto es un recurso gratuito. Si decides utilizarlo en alguno de tus proyectos, agradecería los créditos, aunque eres totalmente libre de no hacerlo.
+
+### Demostración en video
+https://youtu.be/t_KPnAE53gI
 ---
 
 ## 1. Fade In (Aparición Suave)
+
+Esta animación permite que el texto aparezca gradualmente cambiando su opacidad.
 
 ### 🖼️ Muestra:
 ![1](https://github.com/user-attachments/assets/89ea952a-54c7-4d28-80e6-6ee40fb850cd)
