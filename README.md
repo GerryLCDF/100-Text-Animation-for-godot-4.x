@@ -2727,14 +2727,14 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 > `[seq_flip speed=3.0]Example text.[/seq_flip]`
 ---
 
-## 71. Double Clash Sweep (Choque de Barrido)
+## 71. Double Clash Sweep (Clashing Sweep)
 
-Dos olas de luz viajan desde extremos opuestos y combinan su color al encontrarse en cada letra.
+Two waves of light travel from opposite ends and combine their color as they meet at each letter.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![71](https://github.com/user-attachments/assets/d7739dbc-f547-484d-8d05-b477ed21fc0c)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextDoubleClash
@@ -2770,28 +2770,28 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `3.0` | Velocidad de las olas de luz. |
-| **delay** | `0.15` | Tiempo entre cada letra. |
-| **c1** | `Color.CYAN` | Color del barrido desde la izquierda. |
-| **c2** | `Color.RED` | Color del barrido desde la derecha. |
+| **speed** | `3.0` | Speed of the light waves. |
+| **delay** | `0.15` | Time delay between each letter. |
+| **c1** | `Color.CYAN` | Sweep color from the left. |
+| **c2** | `Color.RED` | Sweep color from the right. |
 
-> **Ejemplo de uso:**
-> `[clash speed=3.0 c1=00ffff c2=ff0000]Texto de ejemplo.[/clash]`
+> **Usage Example:**
+> `[clash speed=3.0 c1=00ffff c2=ff0000]Example text.[/clash]`
 
 ---
 
-## 72. Perspective Tilt (Inclinación 3D)
+## 72. Perspective Tilt (Perspective Tilt)
 
-El texto oscila lateralmente con un efecto de deformación que simula profundidad 3D.
+The text oscillates laterally with a deformation effect that simulates 3D depth.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![72](https://github.com/user-attachments/assets/cee46103-5b8d-4963-917b-bed8259b771e)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextPerspectiveTilt
@@ -2807,26 +2807,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de la oscilación. |
-| **angle** | `0.5` | Máximo ángulo de inclinación. |
+| **speed** | `2.0` | Oscillation speed. |
+| **angle** | `0.5` | Maximum tilt angle. |
 
-> **Ejemplo de uso:**
-> `[tilt speed=2.0 angle=0.4]Texto de ejemplo.[/tilt]`
+> **Usage Example:**
+> `[tilt speed=2.0 angle=0.4]Example text.[/tilt]`
 
 ---
 
-## 73. Loading Dot (Carga)
+## 73. Loading Dot (Loading Effect)
 
-Las letras saltan de forma cíclica una por una, imitando un indicador de carga.
+Letters jump in a cyclical way one by one, imitating a loading indicator.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![73](https://github.com/user-attachments/assets/edabf83c-34ab-43b3-8d74-e51699ce3c98)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextLoading
@@ -2844,26 +2844,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `5.0` | Rapidez del ciclo de salto. |
-| **height** | `8.0` | Altura máxima del salto. |
+| **speed** | `5.0` | Speed of the jump cycle. |
+| **height** | `8.0` | Maximum jump height. |
 
-> **Ejemplo de uso:**
-> `[load speed=5.0 height=10.0]Texto de ejemplo.[/load]`
+> **Usage Example:**
+> `[load speed=5.0 height=10.0]Example text.[/load]`
 
 ---
 
-## 74. Breath Glow (Respiración)
+## 74. Breath Glow (Breathing Glow)
 
-El texto pulsa suavemente cambiando su brillo y opacidad, como si estuviera respirando.
+The text pulses gently, changing its brightness and opacity as if it were breathing.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![74](https://github.com/user-attachments/assets/00025835-dcea-4376-aacc-5b79b96e3752)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextBreath
@@ -2879,25 +2879,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del ciclo de respiración. |
+| **speed** | `2.0` | Speed of the breathing cycle. |
 
-> **Ejemplo de uso:**
-> `[breath speed=2.0]Texto de ejemplo.[/breath]`
+> **Usage Example:**
+> `[breath speed=2.0]Example text.[/breath]`
 
 ---
 
-## 75. Heartbeat (Latido)
+## 75. Heartbeat (Heartbeat Effect)
 
-Simula el ritmo de un corazón (lub-dub) aplicando un pulso doble a la escala del texto.
+Simulates the rhythm of a heart (lub-dub) by applying a double pulse to the text scale.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![75](https://github.com/user-attachments/assets/1f67f0d1-d788-4acd-856c-b57ac6978c93)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextHeartbeat
@@ -2919,25 +2919,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `1.0` | Frecuencia de los latidos. |
+| **speed** | `1.0` | Heartbeat frequency. |
 
-> **Ejemplo de uso:**
-> `[heart speed=1.5]Texto de ejemplo.[/heart]`
+> **Usage Example:**
+> `[heart speed=1.5]Example text.[/heart]`
 
 ---
 
-## 76. Static Noise (Estática)
+## 76. Static Noise (Static Effect)
 
-Vibración caótica y cambios de opacidad aleatorios que simulan la estática de un televisor antiguo.
+Chaotic vibration and random opacity shifts that simulate old television static.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![76](https://github.com/user-attachments/assets/901016c1-6495-4448-a79a-be3f80689cda)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextStatic
@@ -2952,25 +2952,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[static]Texto de ejemplo.[/static]`
+> **Usage Example:**
+> `[static]Example text.[/static]`
 
 ---
 
-## 77. Snake (Serpiente)
+## 77. Snake (Snake Movement)
 
-El texto se desplaza siguiendo una trayectoria sinuosa en forma de "S", imitando el movimiento de una serpiente.
+The text slides following a sinuous "S" shaped path, imitating a snake's movement.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![77](https://github.com/user-attachments/assets/95f54edd-f1fe-4696-b2e4-ba107134b100)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSnake
@@ -2988,26 +2988,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `3.0` | Velocidad del desplazamiento. |
-| **amp** | `10.0` | Amplitud del movimiento (qué tanto se aleja del centro). |
+| **speed** | `3.0` | Movement speed. |
+| **amp** | `10.0` | Movement amplitude (offset from center). |
 
-> **Ejemplo de uso:**
-> `[snake speed=3.0 amp=10.0]Texto de ejemplo.[/snake]`
+> **Usage Example:**
+> `[snake speed=3.0 amp=10.0]Example text.[/snake]`
 
 ---
 
-## 78. Mirror (Reflejo en Agua)
+## 78. Mirror (Water Reflection)
 
-Crea una distorsión de inclinación y balanceo vertical que simula el reflejo sobre una superficie líquida.
+Creates tilt distortion and vertical swaying to simulate reflection on a liquid surface.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![78](https://github.com/user-attachments/assets/426531b3-a62d-4632-a2f9-ddcbaed35b93)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextMirror
@@ -3024,25 +3024,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `4.0` | Velocidad de la oscilación del reflejo. |
+| **speed** | `4.0` | Reflection oscillation speed. |
 
-> **Ejemplo de uso:**
-> `[mirror speed=4.0]Texto de ejemplo.[/mirror]`
+> **Usage Example:**
+> `[mirror speed=4.0]Example text.[/mirror]`
 
 ---
 
-## 79. Stairs (Escalón)
+## 79. Stairs (Stair Effect)
 
-Las letras suben y bajan de posición en "escalones" discretos, creando un movimiento rítmico y mecánico.
+Letters step up and down in discrete "steps," creating a rhythmic, mechanical movement.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![79](https://github.com/user-attachments/assets/b48e9905-49f7-4668-9e26-efca12e5f1c9)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextStairs
@@ -3058,25 +3058,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[stairs]Texto de ejemplo.[/stairs]`
+> **Usage Example:**
+> `[stairs]Example text.[/stairs]`
 
 ---
 
-## 80. Magnet (Atracción Magnética)
+## 80. Magnet (Magnetic Attraction)
 
-Las letras se separan y vuelven a juntarse hacia el centro del texto, como si un imán las jalara y soltara rítmicamente.
+Letters pull apart and snap back toward the text center, as if a magnet were pulling them.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![80](https://github.com/user-attachments/assets/6d932646-654b-4372-b2b1-fc3d98b330bb)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextMagnet
@@ -3094,25 +3094,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del ciclo de atracción/repulsión. |
+| **speed** | `2.0` | Speed of the attraction/repulsion cycle. |
 
-> **Ejemplo de uso:**
-> `[magnet speed=2.0]Texto de ejemplo.[/magnet]`
+> **Usage Example:**
+> `[magnet speed=2.0]Example text.[/magnet]`
 
 ---
 
-## 81. Glitch Block (Bloque de Error)
+## 81. Glitch Block (Faulty Block)
 
-Mueve caracteres de forma lateral muy rápida y aumenta su brillo esporádicamente, simulando un fallo de señal.
+Characters shift laterally at high speed and sporadically increase their brightness, simulating a signal failure.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![81](https://github.com/user-attachments/assets/69897c23-20a6-4e98-be03-0218a343ed5d)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextGlitchBlock
@@ -3127,25 +3127,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[g_block]Texto de ejemplo.[/g_block]`
+> **Usage Example:**
+> `[g_block]Example text.[/g_block]`
 
 ---
 
-## 82. Orbit (Órbita)
+## 82. Orbit (Orbiting Letters)
 
-Cada letra gira individualmente en círculos pequeños alrededor de su posición original.
+Each letter individually rotates in small circles around its original position.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![82](https://github.com/user-attachments/assets/53b28829-aaf0-4b75-863e-9bfbe2011040)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextOrbit
@@ -3159,25 +3159,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[orbit]Texto de ejemplo.[/orbit]`
+> **Usage Example:**
+> `[orbit]Example text.[/orbit]`
 
 ---
 
-## 83. Ghost Trail (Rastro Fantasma)
+## 83. Ghost Trail (Ghost Trail)
 
-Las letras parpadean y dejan de estar fijas, simulando una estela o rastro transparente en movimiento.
+Letters flicker and lose their fixed position, simulating a transparent trail or "afterimage" effect in motion.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![83](https://github.com/user-attachments/assets/1e597318-9f24-4706-aaed-d3452b0fa0c0)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextGhostTrail
@@ -3193,25 +3193,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[trail]Texto de ejemplo.[/trail]`
+> **Usage Example:**
+> `[trail]Example text.[/trail]`
 
 ---
 
-## 84. Earthquake (Terremoto)
+## 84. Earthquake (Earthquake Effect)
 
-Sacudidas violentas en todas direcciones que aumentan y disminuyen de intensidad rítmicamente.
+Violent shakes in all directions that increase and decrease in intensity rhythmically.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![84](https://github.com/user-attachments/assets/30c1ad5f-82b6-4a17-8819-2bb09b9bb904)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextQuake
@@ -3225,25 +3225,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[quake]Texto de ejemplo.[/quake]`
+> **Usage Example:**
+> `[quake]Example text.[/quake]`
 
 ---
 
-## 85. Liquid (Calor Líquido)
+## 85. Liquid (Heat Distortion)
 
-Deforma suavemente el eje de las letras de forma sinusoidal, similar a la distorsión del aire por calor intenso.
+Smoothly deforms the axis of the letters in a sinusoidal way, similar to air distortion caused by intense heat.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![85](https://github.com/user-attachments/assets/8316f8b1-e8e4-4ea4-9eb5-1e8696d214cb)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextLiquid
@@ -3260,25 +3260,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `3.0` | Velocidad de la distorsión líquida. |
+| **speed** | `3.0` | Liquid distortion speed. |
 
-> **Ejemplo de uso:**
-> `[liquid speed=3.0]Texto de ejemplo.[/liquid]`
+> **Usage Example:**
+> `[liquid speed=3.0]Example text.[/liquid]`
 
 ---
 
-## 86. Drifting (Derrape)
+## 86. Drifting (Drifting Letters)
 
-Las letras se desplazan suavemente hacia la derecha mientras se desvanecen y reaparecen instantáneamente a la izquierda.
+Letters smoothly slide to the right while fading out and instantly reappearing on the left.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![86](https://github.com/user-attachments/assets/fba871df-ad99-4f9a-a563-65b1f7f217e9)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextDrift
@@ -3293,25 +3293,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[drift]Texto de ejemplo.[/drift]`
+> **Usage Example:**
+> `[drift]Example text.[/drift]`
 
 ---
 
-## 87. Yoshi’s Island (Mareado)
+## 87. Yoshi’s Island (Dizzy Effect)
 
-Inspirado en el efecto "Touch Fuzzy, Get Dizzy". Las letras se balancean y cambian de tamaño de forma errática.
+Inspired by the "Touch Fuzzy, Get Dizzy" effect. Letters sway and change size erratically.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![87](https://github.com/user-attachments/assets/c53c67d6-d4c1-4fa1-8abd-e2910d3d3948)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextYoshi
@@ -3326,25 +3326,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[yoshi]Texto de ejemplo.[/yoshi]`
+> **Usage Example:**
+> `[yoshi]Example text.[/yoshi]`
 
 ---
 
-## 88. Pokémon Damage (Daño)
+## 88. Pokémon Damage (Damage Effect)
 
-Simula la sacudida horizontal rápida que ocurre cuando un Pokémon recibe un golpe en los juegos clásicos.
+Simulates the rapid horizontal shake that occurs when a Pokémon takes a hit in the classic games.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![88](https://github.com/user-attachments/assets/54dc1264-be72-4631-ae3b-b3c7e71e12a8)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextPkmn
@@ -3359,25 +3359,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[pkmn]Texto de ejemplo.[/pkmn]`
+> **Usage Example:**
+> `[pkmn]Example text.[/pkmn]`
 
 ---
 
-## 89. Zelda Item (Tesoro)
+## 89. Zelda Item (Treasure Effect)
 
-Las letras brillan en color dorado y se elevan suavemente, como cuando Link obtiene un objeto importante.
+Letters glow in a golden color and rise gently, like when Link obtains an important item.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![89](https://github.com/user-attachments/assets/b97bf6df-015f-430f-bb30-470e18c05df5)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextZelda
@@ -3392,25 +3392,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[zelda]Texto de ejemplo.[/zelda]`
+> **Usage Example:**
+> `[zelda]Example text.[/zelda]`
 
 ---
 
-## 90. Persona 5 (Estilo P5)
+## 90. Persona 5 (P5 Style)
 
-Inclinación fija con una vibración caótica de los caracteres, imitando la interfaz dinámica de Persona 5.
+Fixed tilt with a chaotic vibration of the characters, imitating the dynamic interface of Persona 5.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![90](https://github.com/user-attachments/assets/62cbc5c0-dedd-4231-b6a3-69f2a0e9d102)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextP5
@@ -3425,25 +3425,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[p5]Texto de ejemplo.[/p5]`
+> **Usage Example:**
+> `[p5]Example text.[/p5]`
 
 ---
 
-## 91. Undertale Sans (Voz de Sans)
+## 91. Undertale Sans (Sans Voice)
 
-Las letras saltan de forma rítmica y desfasada, imitando el estilo de diálogo de Sans el esqueleto.
+Letters hop in a rhythmic and staggered way, imitating Sans the skeleton's dialogue style.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![91](https://github.com/user-attachments/assets/1f3bbdf1-eb22-42d6-a537-6b01781f77c7)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSans
@@ -3458,25 +3458,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[sans]Texto de ejemplo.[/sans]`
+> **Usage Example:**
+> `[sans]Example text.[/sans]`
 
 ---
 
-## 92. Minecraft Enchant (Runas)
+## 92. Minecraft Enchant (Runic Enchantment)
 
-Los caracteres cambian aleatoriamente a símbolos extraños y se tornan púrpuras, como en la mesa de encantamientos.
+Characters randomly shift into strange symbols and turn purple, like in the enchantment table.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![92](https://github.com/user-attachments/assets/12768a22-47a9-424b-9997-5a60d85e991b)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextEnchant
@@ -3491,25 +3491,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[enchant]Texto de ejemplo.[/enchant]`
+> **Usage Example:**
+> `[enchant]Example text.[/enchant]`
 
 ---
 
-## 93. MGS Alert (¡Alert!)
+## 93. MGS Alert (Alert!)
 
-El texto salta violentamente y parpadea en rojo brillante, imitando el ícono de alerta de Metal Gear Solid.
+The text jumps violently and flashes bright red, imitating the alert icon from Metal Gear Solid.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![93](https://github.com/user-attachments/assets/cb8b7c5b-edbf-483a-bf79-bad2381fd84a)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextAlert
@@ -3524,25 +3524,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[alert]Texto de ejemplo.[/alert]`
+> **Usage Example:**
+> `[alert]Example text.[/alert]`
 
 ---
 
-## 94. Mario Fireball (Fuego)
+## 94. Mario Fireball (Fireball Effect)
 
-Las letras rebotan siguiendo una trayectoria parabólica y cambian entre colores naranja y amarillo.
+Letters bounce following a parabolic trajectory and shift between orange and yellow colors.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![94](https://github.com/user-attachments/assets/71fe6f66-3dd0-408b-bc03-a51dcaee4af7)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextFireball
@@ -3557,25 +3557,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[mfire]Texto de ejemplo.[/mfire]`
+> **Usage Example:**
+> `[mfire]Example text.[/mfire]`
 
 ---
 
 ## 95. Final Fantasy Cursor
 
-Un movimiento horizontal rítmico que emula el puntero de selección de los Final Fantasy clásicos.
+A rhythmic horizontal movement that emulates the selection pointer from classic Final Fantasy games.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![95](https://github.com/user-attachments/assets/eea485eb-d5b8-4885-af74-f5e89dcd9d6e)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextFF
@@ -3588,25 +3588,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[ff]Texto de ejemplo.[/ff]`
+> **Usage Example:**
+> `[ff]Example text.[/ff]`
 
 ---
 
-## 96. Splatoon Ink (Tinta)
+## 96. Splatoon Ink (Ink Effect)
 
-Las letras se deforman elásticamente y "gotean" hacia abajo, simulando la viscosidad de la tinta.
+Letters deform elastically and "drip" downwards, simulating ink viscosity.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![96](https://github.com/user-attachments/assets/da439293-adbb-4896-8670-a18c8e156196)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextInk
@@ -3621,25 +3621,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[ink]Texto de ejemplo.[/ink]`
+> **Usage Example:**
+> `[ink]Example text.[/ink]`
 
 ---
 
-## 97. Black Hole (Agujero Negro)
+## 97. Black Hole (Gravity Void)
 
-Efecto de gravedad donde las letras son succionadas hacia el centro del texto y pierden opacidad.
+A gravity effect where letters are sucked toward the center of the text and lose opacity.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![97](https://github.com/user-attachments/assets/e88f5a3c-c5f3-4ba8-ade0-2c9286a2bdcf)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextVoid
@@ -3655,25 +3655,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[void]Texto de ejemplo.[/void]`
+> **Usage Example:**
+> `[void]Example text.[/void]`
 
 ---
 
-## 98. DNA Helix (Hélice)
+## 98. DNA Helix (Helix Effect)
 
-Las letras se cruzan en un movimiento vertical entrelazado que simula la estructura de una cadena de ADN.
+Letters cross in an interlaced vertical movement that simulates the structure of a DNA strand.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![98](https://github.com/user-attachments/assets/aab8609f-44f2-46c1-9c19-9158addddcec)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextDNA
@@ -3688,25 +3688,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[dna]Texto de ejemplo.[/dna]`
+> **Usage Example:**
+> `[dna]Example text.[/dna]`
 
 ---
 
-## 99. Ghost Writer (Escritor Fantasma)
+## 99. Ghost Writer (Ghost Writer)
 
-Las letras aparecen y desaparecen con un desvanecimiento suave y un ligero movimiento vertical.
+Letters appear and disappear with a smooth fade and a slight vertical movement.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![99](https://github.com/user-attachments/assets/ac5a77c3-909a-4d1d-a263-931962587983)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextGhostW
@@ -3721,25 +3721,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[gwrite]Texto de ejemplo.[/gwrite]`
+> **Usage Example:**
+> `[gwrite]Example text.[/gwrite]`
 
 ---
 
-## 100. Supernova (Explosión)
+## 100. Supernova (Explosion Effect)
 
-Un estallido de brillo blanco que se transforma en un ciclo de colores vibrantes a gran escala.
+A burst of white light that transforms into a vibrant, large-scale color cycle.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![100](https://github.com/user-attachments/assets/718205c8-a8a4-4f96-a71d-bb495cd7dd07)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextNova
@@ -3757,25 +3757,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[nova]Texto de ejemplo.[/nova]`
+> **Usage Example:**
+> `[nova]Example text.[/nova]`
 
 ---
 
-## 101. Matrix Neo (Código)
+## 101. Matrix Neo (Matrix Code)
 
-Lluvia de caracteres con parpadeo verde binario que termina estabilizándose en el texto final.
+Falling characters with green binary flickering that settles into the final text.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![101](https://github.com/user-attachments/assets/d153783e-1379-40e9-9df4-859ac3f3c655)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextNeo
@@ -3793,11 +3793,11 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[neo]Texto de ejemplo.[/neo]`
+> **Usage Example:**
+> `[neo]Example text.[/neo]`
