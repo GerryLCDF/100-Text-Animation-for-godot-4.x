@@ -1882,6 +1882,8 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 
 ## 50. Rotate Y (Eje Vertical / 3D Falso)
 
+Simula una rotación de estilo 3D en el eje vertical (alrededor del eje Y) a medida que las letras se revelan.
+
 ### 🖼️ Muestra:
 ![50](https://github.com/user-attachments/assets/11e002b9-c30d-4553-84e7-1c1a946173ed)
 
@@ -1913,6 +1915,8 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 
 ## 51. Rotate X (Eje Horizontal / 3D Falso)
 
+Simula una rotación de estilo 3D en el eje horizontal (alrededor del eje X) a medida que las letras se revelan.
+
 ### 🖼️ Muestra:
 ![51](https://github.com/user-attachments/assets/73ea0861-bd24-4bac-b735-0623f399ea0c)
 
@@ -1939,6 +1943,197 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 
 > **Ejemplo de uso:**
 > `[rot_x speed=2.0]Texto de ejemplo[/rot_x]`
+
+---
+
+## 52. Wind Blowing (Soplido de Viento)
+
+Simula ráfagas de viento que inclinan y empujan el texto de forma orgánica.
+
+### 🖼️ Muestra:
+![52](https://github.com/user-attachments/assets/abc452de-d710-44c3-b467-d3e0f98cde2d)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextWindBlowing
+extends RichTextEffect
+
+var bbcode = "wind"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var strength = char_fx.env.get("str", 8.0)
+	
+	var time = char_fx.elapsed_time * speed
+	var wind = sin(time + (char_fx.relative_index * 0.2)) * cos(time * 0.7)
+	
+	char_fx.transform.x.y = wind * 0.2
+	char_fx.offset.x += wind * strength
+	char_fx.offset.y -= abs(wind) * (strength * 0.5)
+	
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Velocidad de las ráfagas de aire. |
+| **str** | `8.0` | Intensidad del balanceo y el empuje. |
+
+> **Ejemplo de uso:**
+> `[wind speed=2.0 str=8.0]Texto de ejemplo.[/wind]`
+
+---
+
+## 53. Star Fragment (Fragmento Estelar)
+
+Efecto de levitación mágica con destellos brillantes aleatorios que aparecen en cada letra.
+
+### 🖼️ Muestra:
+![53](https://github.com/user-attachments/assets/0dadd58b-45c6-44b5-8c77-31a0d4539e6a)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextStarFragment
+extends RichTextEffect
+
+var bbcode = "star"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 1.5)
+	var shine_speed = char_fx.env.get("shine", 5.0)
+	
+	var float_y = sin(char_fx.elapsed_time * speed + char_fx.relative_index * 0.5) * 4.0
+	char_fx.offset.y += float_y
+	
+	var glow = sin(char_fx.elapsed_time * shine_speed + (char_fx.relative_index * 91.0)) 
+	glow = pow(max(0.0, glow), 4.0)
+	
+	char_fx.color = char_fx.color.lerp(Color.WHITE, glow * 0.8)
+	var s = 1.0 + (glow * 0.15)
+	char_fx.transform = char_fx.transform.scaled_local(Vector2(s, s))
+	
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `1.5` | Velocidad del movimiento de levitación. |
+| **shine** | `5.0` | Frecuencia de los destellos. |
+
+> **Ejemplo de uso:**
+> `[star speed=1.5 shine=5.0]Texto de ejemplo.[/star]`
+
+---
+
+## 54. Flicker (Parpadeo)
+
+Efecto de entrada donde los caracteres parpadean intermitentemente como un letrero de neón defectuoso.
+
+### 🖼️ Muestra:
+![54](https://github.com/user-attachments/assets/9216e086-24ed-4efa-b06d-8f8b09529e10)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextFlicker
+extends RichTextEffect
+
+var bbcode = "flicker"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 1.0)
+	var t = (char_fx.elapsed_time - (char_fx.relative_index * 0.05)) * speed
+	if t < 0.0: char_fx.color.a = 0.0
+	elif t < 1.2:
+		var flash = [0, 1, 0, 1, 0, 1, 0, 1, 1][int(t * 7.5) % 9]
+		char_fx.color.a = float(flash)
+	else: char_fx.color.a = 1.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `1.0` | Velocidad del parpadeo. |
+
+> **Ejemplo de uso:**
+> `[flicker speed=1.0]Texto de ejemplo.[/flicker]`
+
+---
+
+## 55. Blur Right (Desenfoque desde Derecha)
+
+Efecto de entrada con desenfoque de movimiento proviniendo desde el lado derecho.
+
+### 🖼️ Muestra:
+![55](https://github.com/user-attachments/assets/5d77edd6-ae04-4ae4-8b4a-cae7cde16d3a)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextBlurRight
+extends RichTextEffect
+
+var bbcode = "blur_r"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = clamp(char_fx.elapsed_time * 2.0 - (char_fx.relative_index * 0.05), 0.0, 1.0)
+	char_fx.offset.x = lerp(50.0, 0.0, t)
+	char_fx.color.a = t
+	if t < 0.5: char_fx.offset.x += randf_range(-2.0, 2.0)
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[blur_r]Texto de ejemplo.[/blur_r]`
+
+---
+
+## 56. Blur Left (Desenfoque desde Izquierda)
+
+Efecto de entrada con desenfoque de movimiento proviniendo desde el lado izquierdo.
+
+### 🖼️ Muestra:
+![56](https://github.com/user-attachments/assets/c36500d6-9b3d-412d-9343-15424aee3b12)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextBlurLeft
+extends RichTextEffect
+
+var bbcode = "blur_l"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = clamp(char_fx.elapsed_time * 2.0 - (char_fx.relative_index * 0.05), 0.0, 1.0)
+	char_fx.offset.x = lerp(-50.0, 0.0, t)
+	char_fx.color.a = t
+	if t < 0.5: char_fx.offset.x += randf_range(-2.0, 2.0)
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[blur_l]Texto de ejemplo.[/blur_l]`
+
 ---
 
 ## 57. Fly Up (Vuelo hacia arriba)
@@ -2009,9 +2204,9 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 
 ---
 
-## 59. Glitch Out (Salida Glitch)
+## 59. Glitch Out (Salida con Glitch)
 
-Efecto de desintegración digital. Las letras vibran aleatoriamente y cambian de color antes de desaparecer.
+Efecto de salida con desintegración digital. Las letras vibran aleatoriamente y cambian de color antes de desaparecer.
 
 ### 🖼️ Muestra:
 ![59](https://github.com/user-attachments/assets/4d20cd07-0151-451c-a7eb-9fe3231f1581)
@@ -2044,17 +2239,17 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 
 | Parámetro | Valor por Defecto | Descripción |
 | :--- | :---: | :--- |
-| **speed** | `1.5` | Velocidad de la desintegración. |
-| **delay** | `0.1` | Tiempo de espera entre caracteres. |
+| **speed** | `1.5` | Velocidad de desintegración. |
+| **delay** | `0.1` | Tiempo de espera entre caracteres durante la salida. |
 
 > **Ejemplo de uso:**
-| `[g_out speed=1.5 delay=0.1]Texto de ejemplo.[/g_out]`
+> `[g_out speed=1.5 delay=0.1]Texto de ejemplo.[/g_out]`
 
 ---
 
 ## 60. Spotlight Sweep (Barrido de Foco)
 
-Un haz de luz recorre el texto horizontalmente, iluminando las letras a su paso.
+Un haz de luz recorre el texto horizontalmente, iluminando cada letra a su paso.
 
 ### 🖼️ Muestra:
 ![60](https://github.com/user-attachments/assets/faff693a-6c64-4a7a-917d-10d7d3987f4a)
@@ -2074,6 +2269,16 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	char_fx.color *= lum
 	if lum > 0.8: char_fx.color = char_fx.color.lerp(Color.WHITE, lum - 0.8)
 	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[spotlight]Texto de ejemplo.[/spotlight]`
 ```
 
 ### 📊 Parámetros de Configuración
