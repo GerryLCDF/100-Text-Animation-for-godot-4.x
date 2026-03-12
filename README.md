@@ -2284,10 +2284,11 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 
 ## 59. Glitch Out (Glitch Exit)
 
+
 A digital disintegration exit effect. Letters vibrate randomly and shift colors before disappearing.
 
 ### 🖼️ Preview:
-![59](https://github.com/user-attachments/assets/4d20cd07-0151-451c-a7eb-9fe3231f1581)
+![59](https://github.com/user-attachments/assets/f48bd263-5607-4d5c-80b9-09a7978a4e7e)
 
 ### 💻 Code:
 ```gdscript
