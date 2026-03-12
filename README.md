@@ -2360,14 +2360,14 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 > `[spotlight]Example text.[/spotlight]`
 ---
 
-## 61. Terminal Type (Efecto Terminal)
+## 61. Terminal Type (Terminal Effect)
 
-Simula una consola antigua. Las letras aparecen una a una con un parpadeo de brillo al surgir.
+Simulates an old-school computer console. Letters appear one by one with a brightness flicker as they emerge.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![61](https://github.com/user-attachments/assets/7b858d03-75f7-4345-879f-4060da80dfa9)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextTerminal
@@ -2384,25 +2384,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `10.0` | Cantidad de letras por segundo. |
+| **speed** | `10.0` | Number of letters revealed per second. |
 
-> **Ejemplo de uso:**
-> `[term speed=15.0]Texto de ejemplo.[/term]`
+> **Usage Example:**
+> `[term speed=15.0]Example text.[/term]`
 
 ---
 
-## 62. RGB Glitch Shift (Desfase RGB)
+## 62. RGB Glitch Shift (RGB Shift)
 
-Entrada con distorsión cromática que separa los canales rojo y azul brevemente.
+An entrance effect with chromatic distortion that briefly separates the red and blue channels.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![62](https://github.com/user-attachments/assets/dc9648d1-3cc0-4bab-b3d0-4259bcb93302)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextRGBGlitch
@@ -2421,25 +2421,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[rgb_g]Texto de ejemplo.[/rgb_g]`
+> **Usage Example:**
+> `[rgb_g]Example text.[/rgb_g]`
 
 ---
 
-## 63. Water Drop (Gota de Agua)
+## 63. Water Drop (Water Drop)
 
-Las letras caen desde arriba y realizan un efecto de "squash and stretch" al impactar.
+Letters fall from above and perform a "squash and stretch" effect upon impact.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![63](https://github.com/user-attachments/assets/1ae06051-1df7-449b-a324-987ad1b4f3d7)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextWaterDrop
@@ -2457,25 +2457,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[water]Texto de ejemplo.[/water]`
+> **Usage Example:**
+> `[water]Example text.[/water]`
 
 ---
 
-## 64. Falling Leaves (Hojas Cayendo)
+## 64. Falling Leaves (Falling Leaves)
 
-Las letras caen suavemente con una rotación oscilatoria, imitando la caída de una hoja.
+Letters fall gently with an oscillatory rotation, imitating a falling leaf.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![64](https://github.com/user-attachments/assets/b09669b2-e3c3-4ab5-86c6-c6b13a9211f6)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextLeaves
@@ -2492,25 +2492,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[leaves]Texto de ejemplo.[/leaves]`
+> **Usage Example:**
+> `[leaves]Example text.[/leaves]`
 
 ---
 
-## 65. Squeeze Expand (Estiramiento)
+## 65. Squeeze Expand (Squeeze Expand)
 
-Entrada mediante un estiramiento vertical que se asienta en su tamaño original.
+An entrance effect featuring a vertical stretch that settles into its original size.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![65](https://github.com/user-attachments/assets/08b982ff-cc6f-4b3e-a0fa-53a91db8dcde)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSqueezeExpand
@@ -2526,25 +2526,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | Does not require additional parameters. |
 
-> **Ejemplo de uso:**
-> `[sq_ex]Texto de ejemplo.[/sq_ex]`
+> **Usage Example:**
+> `[sq_ex]Example text.[/sq_ex]`
 
 ---
 
-## 66. Sink Hole (Caída al Vacío)
+## 66. Sink Hole (Sink Hole Exit)
 
-Efecto de salida donde las letras caen pesadamente y rotan mientras desaparecen.
+An exit effect where letters fall heavily and rotate as they disappear into the "void."
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![66](https://github.com/user-attachments/assets/bab15daf-5aed-4960-82db-cde1a06ce2f5)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSinkHole
@@ -2563,25 +2563,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de la caída. |
-| **delay** | `0.05` | Retraso entre cada letra. |
+| **speed** | `2.0` | Falling speed. |
+| **delay** | `0.05` | Delay between each letter. |
 
-> **Ejemplo de uso:**
-> `[sink speed=2.0 delay=0.05]Texto de ejemplo.[/sink]`
+> **Usage Example:**
+> `[sink speed=2.0 delay=0.05]Example text.[/sink]`
+
 ---
 
-## 67. Split Join (Unión Dividida)
+## 67. Split Join (Split Join)
 
-Las letras entran desde los laterales de forma alterna (una por izquierda, otra por derecha) hasta unirse en el centro.
+Letters enter from the sides alternately (one from the left, one from the right) until they join in the center.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![67](https://github.com/user-attachments/assets/f9566b08-8168-4a8e-bfc5-b72331ed29c9)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSplitJoin
@@ -2599,25 +2600,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad con la que se unen las letras. |
+| **speed** | `2.0` | Speed at which letters join together. |
 
-> **Ejemplo de uso:**
-> `[split_join speed=2.0]Texto de ejemplo.[/split_join]`
+> **Usage Example:**
+> `[split_join speed=2.0]Example text.[/split_join]`
 
 ---
 
-## 68. Wheel In Left (Rueda desde Izquierda)
+## 68. Wheel In Left (Wheel In Left)
 
-Efecto de entrada donde cada letra aparece rodando desde el lado izquierdo hasta su posición final.
+An entrance effect where each letter appears rolling from the left side to its final position.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![68](https://github.com/user-attachments/assets/2a7a59c7-fa4a-4146-8f30-613880444a46)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextWheelL
@@ -2638,25 +2639,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de rotación y traslación. |
+| **speed** | `2.0` | Rotation and translation speed. |
 
-> **Ejemplo de uso:**
-> `[wheel_l speed=2.0]Texto de ejemplo.[/wheel_l]`
+> **Usage Example:**
+> `[wheel_l speed=2.0]Example text.[/wheel_l]`
 
 ---
 
-## 69. Wheel In Right (Rueda desde Derecha)
+## 69. Wheel In Right (Wheel In Right)
 
-Efecto de entrada donde cada letra aparece rodando desde el lado derecho hasta su posición final.
+An entrance effect where each letter appears rolling from the right side to its final position.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![69](https://github.com/user-attachments/assets/c292004a-bd42-4c0c-a24d-bc79f7eb0fa8)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextWheelR
@@ -2677,25 +2678,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de rotación y traslación. |
+| **speed** | `2.0` | Rotation and translation speed. |
 
-> **Ejemplo de uso:**
-> `[wheel_r speed=2.0]Texto de ejemplo.[/wheel_r]`
+> **Usage Example:**
+> `[wheel_r speed=2.0]Example text.[/wheel_r]`
 
 ---
 
-## 70. Sequential Flip (Giro en Cadena)
+## 70. Sequential Flip (Sequential Flip)
 
-Las letras realizan un giro de 360 grados sobre su propio eje de forma secuencial.
+Letters perform a 360-degree flip on their own axis in a sequential order.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![70](https://github.com/user-attachments/assets/6a1f5ab4-2997-4131-9010-f837135c4048)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSequentialFlip
@@ -2716,15 +2717,14 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `3.0` | Velocidad del giro. |
+| **speed** | `3.0` | Flip animation speed. |
 
-> **Ejemplo de uso:**
-> `[seq_flip speed=3.0]Texto de ejemplo.[/seq_flip]`
-
+> **Usage Example:**
+> `[seq_flip speed=3.0]Example text.[/seq_flip]`
 ---
 
 ## 71. Double Clash Sweep (Choque de Barrido)
