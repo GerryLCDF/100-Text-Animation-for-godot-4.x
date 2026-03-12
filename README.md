@@ -1232,14 +1232,17 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 
 > **Usage Example:**
 > `[nervous speed=20.0 strength=3.0]Nervous or scared text[/nervous]`
+
 ---
 
-## 31. Squeeze In (Revelado por Compresión)
+## 31. Squeeze In (Compression Reveal)
 
-### 🖼️ Muestra:
+Characters appear by scaling up vertically from a compressed state while fading in.
+
+### 🖼️ Preview:
 ![31](https://github.com/user-attachments/assets/fa9cdc2b-53f5-4322-9fd2-e17328d36a0e)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSqueeze extends RichTextEffect
@@ -1261,24 +1264,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de la animación. |
-| **delay** | `0.1` | Retraso entre cada letra. |
+| **speed** | `2.0` | Animation speed. |
+| **delay** | `0.1` | Stagger delay between each letter. |
 
-> **Ejemplo de uso:**
-> `[squeeze speed=2.0 delay=0.1]Texto de ejemplo[/squeeze]`
+> **Usage Example:**
+> `[squeeze speed=2.0 delay=0.1]Example text[/squeeze]`
 
 ---
 
-## 32. Color Shift Intro (Revelado Arcoíris)
+## 32. Color Shift Intro (Rainbow Reveal)
 
-### 🖼️ Muestra:
+Characters are revealed through a multi-stage color transition, passing through several hues before reaching the final color.
+
+### 🖼️ Preview:
 ![32](https://github.com/user-attachments/assets/0456bbb5-6750-48af-b403-c0b48372a6d4)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextColorShiftIntro
@@ -1290,10 +1295,10 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	var speed = char_fx.env.get("speed", 1.0)
 	var char_delay = char_fx.env.get("delay", 0.05)
 	
-	var c1 = Color(char_fx.env.get("c1", "#ffffff")) # Blanco inicial
-	var c2 = Color(char_fx.env.get("c2", "#ff0055")) # Primer cambio
-	var c3 = Color(char_fx.env.get("c3", "#00ccff")) # Segundo cambio
-	var c_end = Color(char_fx.env.get("c_end", "#ffffff")) # Color final
+	var c1 = Color(char_fx.env.get("c1", "#ffffff")) # Initial White
+	var c2 = Color(char_fx.env.get("c2", "#ff0055")) # First shift
+	var c3 = Color(char_fx.env.get("c3", "#00ccff")) # Second shift
+	var c_end = Color(char_fx.env.get("c_end", "#ffffff")) # Final color
 	
 	var time = char_fx.elapsed_time * speed - (char_fx.relative_index * char_delay)
 	
@@ -1311,29 +1316,30 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `1.0` | Velocidad de la transición de color. |
-| **delay** | `0.05` | Desfase cromático entre letras. |
-| **c1** | `#ffffff` | color inciar de las letras. |
-| **c2** | `#ff0055` | primer color de la introduccion. |
-| **c3** | `#00ccff` | Segundo color de la introduccion. |
-| **c_end** | `#ffffff` | el color que tendra al final el texto. |
+| **speed** | `1.0` | Speed of the color transition. |
+| **delay** | `0.05` | Chromatic offset between letters. |
+| **c1** | `#ffffff` | Initial letter color. |
+| **c2** | `#ff0055` | First introduction color. |
+| **c3** | `#00ccff` | Second introduction color. |
+| **c_end** | `#ffffff` | The final color the text will have. |
 
-
-> **Ejemplo de uso:**
-> `[c_shift_in c1=#05614b c2=#020e0e c3=#01de82 c_end=#ffffff speed=1.5]Texto de ejemplo[/c_shift_in]`
+> **Usage Example:**
+> `[c_shift_in c1=#05614b c2=#020e0e c3=#01de82 c_end=#ffffff speed=1.5]Example text[/c_shift_in]`
 
 ---
 
-## 33. Color Shift Loop (Bucle de Color Constante)
+## 33. Color Shift Loop (Constant Color Loop)
 
-### 🖼️ Muestra:
+A continuous color cycle that travels across the text, transitioning smoothly between three defined colors.
+
+### 🖼️ Preview:
 ![33](https://github.com/user-attachments/assets/dc9fd745-bb2b-4a0e-ab11-442240cace3b)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextColorShiftLoop
@@ -1360,27 +1366,29 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del ciclo de color. |
-| **freq** | `0.5` | Distancia de color entre letras contiguas. |
-| **c1** | `#ffffff` | Primer color del bucle |
-| **c2** | `#ff0055` | Segundo color del bulce. |
-| **c3** | `#00ccff` | Tercer color del bucle. |
+| **speed** | `2.0` | Speed of the color cycle. |
+| **freq** | `0.5` | Color distance between adjacent letters. |
+| **c1** | `#ffffff` | First loop color. |
+| **c2** | `#ff0055` | Second loop color. |
+| **c3** | `#00ccff` | Third loop color. |
 
-> **Ejemplo de uso:**
-> `[c_shift_loop c1=#ff0000 c2=#ffaa00 c3=#ffff00 freq=0.1]TEXTO CALIENTE[/c_shift_loop]`
+> **Usage Example:**
+> `[c_shift_loop c1=#ff0000 c2=#ffaa00 c3=#ffff00 freq=0.1]HOT TEXT[/c_shift_loop]`
 
 ---
 
-## 34. Zoom In Fast (Revelado desde 0)
+## 34. Zoom In Fast (Reveal from 0)
 
-### 🖼️ Muestra:
+Characters pop in quickly by scaling up from zero to their original size.
+
+### 🖼️ Preview:
 ![34](https://github.com/user-attachments/assets/06051c89-8cd9-4912-8f86-18d5066210ec)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextZoomIn extends RichTextEffect
@@ -1398,24 +1406,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `3.0` | Velocidad del zoom. |
-| **delay** | `0.05` | Retraso entre cada letra. |
+| **speed** | `3.0` | Zoom speed. |
+| **delay** | `0.05` | Wait time between each letter. |
 
-> **Ejemplo de uso:**
-> `[zoom_in speed=3.0 delay=0.05]Texto de ejemplo[/zoom_in]`
+> **Usage Example:**
+> `[zoom_in speed=3.0 delay=0.05]Example text[/zoom_in]`
 
 ---
 
-## 35. Zoom Out Slow (Revelado desde 2.0)
+## 35. Zoom Out Slow (Reveal from 2.0)
 
-### 🖼️ Muestra:
+Characters appear by scaling down from a large size (2x) to their original size.
+
+### 🖼️ Preview:
 ![35](https://github.com/user-attachments/assets/c0728403-8da7-47dd-8580-25e9c3ec6ef7)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextZoomOut extends RichTextEffect
@@ -1434,24 +1444,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del zoom inverso. |
-| **delay** | `0.05` | Retraso entre cada letra. |
+| **speed** | `2.0` | Inverse zoom speed. |
+| **delay** | `0.05` | Wait time between each letter. |
 
-> **Ejemplo de uso:**
-> `[zoom_out speed=2.0 delay=0.05]Texto de ejemplo[/zoom_out]`
+> **Usage Example:**
+> `[zoom_out speed=2.0 delay=0.05]Example text[/zoom_out]`
 
 ---
 
-## 36. Roll In (Entrada con Rotación)
+## 36. Roll In (Entry with Rotation)
 
-### 🖼️ Muestra:
+Letters roll into their position from the left while spinning.
+
+### 🖼️ Preview:
 ![36](https://github.com/user-attachments/assets/1c30e3be-c638-4a3a-9fb7-a49c2d700a92)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextRollIn extends RichTextEffect
@@ -1473,24 +1485,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de rotación. |
-| **delay** | `0.1` | Retraso entre cada letra. |
+| **speed** | `2.0` | Rotation speed. |
+| **delay** | `0.1` | Wait time between each letter. |
 
-> **Ejemplo de uso:**
-> `[roll speed=2.0 delay=0.1]Texto de ejemplo[/roll]`
+> **Usage Example:**
+> `[roll speed=2.0 delay=0.1]Example text[/roll]`
 
 ---
 
-## 37. Cyber Glitch (Entrada con Vibración)
+## 37. Cyber Glitch (Entry with Vibration)
 
-### 🖼️ Muestra:
+Characters appear while vibrating erratically, creating a digital "glitch" aesthetic.
+
+### 🖼️ Preview:
 ![37](https://github.com/user-attachments/assets/506e1797-5176-44af-8bee-ba3a25ba48c8)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextCyberGlitch extends RichTextEffect
@@ -1511,24 +1525,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.5` | Velocidad del glitch inicial. |
-| **delay** | `0.1` | Retraso entre cada letra. |
+| **speed** | `2.5` | Initial glitch speed. |
+| **delay** | `0.1` | Wait time between each letter. |
 
-> **Ejemplo de uso:**
-> `[cyber speed=2.5 delay=0.1]Texto de ejemplo[/cyber]`
+> **Usage Example:**
+> `[cyber speed=2.5 delay=0.1]Example text[/cyber]`
 
 ---
 
-## 38. Random Reveal (Aparición Desordenada)
+## 38. Random Reveal (Disordered Appearance)
 
-### 🖼️ Muestra:
+Characters appear in a completely random order across the text.
+
+### 🖼️ Preview:
 ![38](https://github.com/user-attachments/assets/93c71c1d-d286-4a0d-9bee-0ac7b2f4abc9)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextRandomReveal extends RichTextEffect
@@ -1545,23 +1561,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `1.5` | Velocidad de revelado aleatorio. |
+| **speed** | `1.5` | Random reveal speed. |
 
-> **Ejemplo de uso:**
-> `[r_reveal speed=1.5]Texto de ejemplo[/r_reveal]`
+> **Usage Example:**
+> `[r_reveal speed=1.5]Example text[/r_reveal]`
 
 ---
 
-## 39. Binary Decode (Decodificador Binario)
+## 39. Binary Decode (Binary Decoder)
 
-### 🖼️ Muestra:
+Characters are first displayed as random "1" and "0" binary digits in green before revealing the actual text.
+
+### 🖼️ Preview:
 ![39](https://github.com/user-attachments/assets/a198a061-d7f2-4415-8d5c-2e11a1fb41e9)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextBinaryDecode extends RichTextEffect
@@ -1586,24 +1604,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `1.0` | Velocidad del proceso de decodificación. |
-| **f_size** | `16` | Tamaño de fuente para el cálculo del glifo binario. |
+| **speed** | `1.0` | Speed of the decoding process. |
+| **f_size** | `16` | Font size used for binary glyph calculation. |
 
-> **Ejemplo de uso:**
-> `[binary speed=1.0 f_size=16]Texto de ejemplo[/binary]`
+> **Usage Example:**
+> `[binary speed=1.0 f_size=16]Example text[/binary]`
 
 ---
 
-## 40. Fall Down (Caída desde arriba)
+## 40. Fall Down (Falling Reveal)
 
-### 🖼️ Muestra:
+Characters fall into position from a vertical offset above.
+
+### 🖼️ Preview:
 ![40](https://github.com/user-attachments/assets/72935a67-8e75-41b3-9361-45d18fafac7e)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextFallDown extends RichTextEffect
@@ -1619,23 +1639,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de caída. |
+| **speed** | `2.0` | Falling speed. |
 
-> **Ejemplo de uso:**
-> `[fall speed=2.0]Texto de ejemplo[/fall]`
+> **Usage Example:**
+> `[fall speed=2.0]Example text[/fall]`
 
 ---
 
-## 41. Rise Up (Subida desde abajo)
+## 41. Rise Up (Rising Reveal)
 
-### 🖼️ Muestra:
+Characters rise into position from a vertical offset below.
+
+### 🖼️ Preview:
 ![41](https://github.com/user-attachments/assets/34d0ff55-7c0b-49ce-96f8-08df48a0836c)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextRiseUp extends RichTextEffect
@@ -1649,23 +1671,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de la subida. |
+| **speed** | `2.0` | Rising speed. |
 
-> **Ejemplo de uso:**
-> `[rise speed=2.0]Texto de ejemplo[/rise]`
+> **Usage Example:**
+> `[rise speed=2.0]Example text[/rise]`
 
 ---
 
-## 42. Pop In (Entrada con Rebote)
+## 42. Pop In (Bounce Entry)
 
-### 🖼️ Muestra:
+Characters pop in with a quick bounce effect, briefly overshooting their original scale.
+
+### 🖼️ Preview:
 ![42](https://github.com/user-attachments/assets/740c3ecd-c9a6-4963-bbc0-a890d45ee618)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextPopIn extends RichTextEffect
@@ -1682,23 +1706,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `3.0` | Velocidad del efecto de rebote al entrar. |
+| **speed** | `3.0` | Bounce entry speed. |
 
-> **Ejemplo de uso:**
-> `[pop_in speed=3.0]Texto de ejemplo[/pop_in]`
+> **Usage Example:**
+> `[pop_in speed=3.0]Example text[/pop_in]`
 
 ---
 
-## 43. Pop Loop (Efecto Burbuja Constante)
+## 43. Pop Loop (Constant Bubble Effect)
 
-### 🖼️ Muestra:
+A continuous, rhythmic scaling oscillation that gives the text a "bubbling" or breathing appearance.
+
+### 🖼️ Preview:
 ![43](https://github.com/user-attachments/assets/e6f3846d-2552-4f13-b66b-a706175acd2e)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextPopLoop extends RichTextEffect
@@ -1712,23 +1738,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `4.0` | Velocidad de la oscilación de la burbuja. |
+| **speed** | `4.0` | Bubble oscillation speed. |
 
-> **Ejemplo de uso:**
-> `[pop_loop speed=4.0]Texto de ejemplo[/pop_loop]`
+> **Usage Example:**
+> `[pop_loop speed=4.0]Example text[/pop_loop]`
 
 ---
 
-## 44. Slit Vertical (Aparición de Corte V)
+## 44. Slit Vertical (Vertical Slit Reveal)
 
-### 🖼️ Muestra:
+Characters are revealed through a vertical "opening" or slit effect.
+
+### 🖼️ Preview:
 ![44](https://github.com/user-attachments/assets/41ba2f19-c208-47cc-8275-86b57a2c99fb)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSlitV extends RichTextEffect
@@ -1742,23 +1770,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de apertura vertical. |
+| **speed** | `2.0` | Vertical opening speed. |
 
-> **Ejemplo de uso:**
-> `[slit_v speed=2.0]Texto de ejemplo[/slit_v]`
+> **Usage Example:**
+> `[slit_v speed=2.0]Example text[/slit_v]`
 
 ---
 
-## 45. Slit Horizontal (Aparición de Corte H)
+## 45. Slit Horizontal (Horizontal Slit Reveal)
 
-### 🖼️ Muestra:
+Characters are revealed through a horizontal "opening" or slit effect.
+
+### 🖼️ Preview:
 ![45](https://github.com/user-attachments/assets/2a532ea2-b2f1-4415-b272-8afa222ba19e)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSlitH extends RichTextEffect
@@ -1772,23 +1802,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de apertura horizontal. |
+| **speed** | `2.0` | Horizontal opening speed. |
 
-> **Ejemplo de uso:**
-> `[slit_h speed=2.0]Texto de ejemplo[/slit_h]`
+> **Usage Example:**
+> `[slit_h speed=2.0]Example text[/slit_h]`
 
 ---
 
-## 46. Roll Top (Rodando desde arriba)
+## 46. Roll Top (Rolling from Above)
 
-### 🖼️ Muestra:
+Letters roll into position from a vertical offset above, spinning forward.
+
+### 🖼️ Preview:
 ![46](https://github.com/user-attachments/assets/b50cabbf-9c90-4971-bef0-70cf984b3f25)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextRollTop extends RichTextEffect
@@ -1806,23 +1838,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de la rotación desde arriba. |
+| **speed** | `2.0` | Rolling from above speed. |
 
-> **Ejemplo de uso:**
-> `[roll_top speed=2.0]Texto de ejemplo[/roll_top]`
+> **Usage Example:**
+> `[roll_top speed=2.0]Example text[/roll_top]`
 
 ---
 
-## 47. Roll Bottom (Rodando desde abajo)
+## 47. Roll Bottom (Rolling from Below)
 
-### 🖼️ Muestra:
+Letters roll into position from a vertical offset below, spinning backward.
+
+### 🖼️ Preview:
 ![47](https://github.com/user-attachments/assets/15d630a9-2a6b-489c-a0b2-be8a0f27853c)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextRollBottom extends RichTextEffect
@@ -1840,23 +1874,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de la rotación desde abajo. |
+| **speed** | `2.0` | Rolling from below speed. |
 
-> **Ejemplo de uso:**
-> `[roll_bottom speed=2.0]Texto de ejemplo[/roll_bottom]`
+> **Usage Example:**
+> `[roll_bottom speed=2.0]Example text[/roll_bottom]`
 
 ---
 
-## 48. Bounce Left (Rebote desde Izquierda)
+## 48. Bounce Left (Bounce from Left)
 
-### 🖼️ Muestra:
+Letters bounce into position from an offset on the left.
+
+### 🖼️ Preview:
 ![48](https://github.com/user-attachments/assets/de356825-24fa-4746-902a-9f64b87e7e83)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextBounceLeft extends RichTextEffect
@@ -1874,23 +1910,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del rebote desde la izquierda. |
+| **speed** | `2.0` | Bounce from left speed. |
 
-> **Ejemplo de uso:**
-> `[bounce_l speed=2.0]Texto de ejemplo[/bounce_l]`
+> **Usage Example:**
+> `[bounce_l speed=2.0]Example text[/bounce_l]`
 
 ---
 
-## 49. Bounce Right (Rebote desde Derecha)
+## 49. Bounce Right (Bounce from Right)
 
-### 🖼️ Muestra:
+Letters bounce into position from an offset on the right.
+
+### 🖼️ Preview:
 ![49](https://github.com/user-attachments/assets/ba81fd7e-7be3-42fb-ba4c-c4f1fec0a692)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextBounceRight extends RichTextEffect
@@ -1908,23 +1946,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del rebote desde la derecha. |
+| **speed** | `2.0` | Bounce from right speed. |
 
-> **Ejemplo de uso:**
-> `[bounce_r speed=2.0]Texto de ejemplo[/bounce_r]`
+> **Usage Example:**
+> `[bounce_r speed=2.0]Example text[/bounce_r]`
 
 ---
 
-## 50. Rotate Y (Eje Vertical / 3D Falso)
+## 50. Rotate Y (Vertical Axis / Pseudo-3D)
 
-### 🖼️ Muestra:
+Simulates a 3D-style vertical rotation (around the Y-axis) as characters are revealed.
+
+### 🖼️ Preview:
 ![50](https://github.com/user-attachments/assets/11e002b9-c30d-4553-84e7-1c1a946173ed)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextRotY extends RichTextEffect
@@ -1939,15 +1979,14 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de rotación en el eje Y. |
+| **speed** | `2.0` | Rotation speed on the Y-axis. |
 
-> **Ejemplo de uso:**
-> `[rot_y speed=2.0]Texto de ejemplo[/rot_y]`
-
+> **Usage Example:**
+> `[rot_y speed=2.0]Example text[/rot_y]`
 ---
 
 ## 51. Rotate X (Eje Horizontal / 3D Falso)
