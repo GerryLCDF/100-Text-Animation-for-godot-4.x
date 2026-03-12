@@ -1956,6 +1956,7 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 > `[bounce_r speed=2.0]Example text[/bounce_r]`
 
 ---
+---
 
 ## 50. Rotate Y (Vertical Axis / Pseudo-3D)
 
@@ -1987,14 +1988,17 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 
 > **Usage Example:**
 > `[rot_y speed=2.0]Example text[/rot_y]`
+
 ---
 
-## 51. Rotate X (Eje Horizontal / 3D Falso)
+## 51. Rotate X (Horizontal Axis / Pseudo-3D)
 
-### 🖼️ Muestra:
+Simulates a 3D-style horizontal rotation (around the X-axis) as characters are revealed.
+
+### 🖼️ Preview:
 ![51](https://github.com/user-attachments/assets/73ea0861-bd24-4bac-b735-0623f399ea0c)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextRotX extends RichTextEffect
@@ -2009,24 +2013,215 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de rotación en el eje X. |
+| **speed** | `2.0` | Rotation speed on the X-axis. |
 
-> **Ejemplo de uso:**
-> `[rot_x speed=2.0]Texto de ejemplo[/rot_x]`
+> **Usage Example:**
+> `[rot_x speed=2.0]Example text[/rot_x]`
+
 ---
 
-## 57. Fly Up (Vuelo hacia arriba)
+## 52. Wind Blowing (Windy Effect)
 
-Efecto de entrada donde las letras vuelan desde la parte inferior de la pantalla con un desvanecimiento suave.
+Simulates gusts of wind that tilt and push the text organically.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
+![52](https://github.com/user-attachments/assets/abc452de-d710-44c3-b467-d3e0f98cde2d)
+
+### 💻 Code:
+```gdscript
+@tool
+class_name RichTextWindBlowing
+extends RichTextEffect
+
+var bbcode = "wind"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var strength = char_fx.env.get("str", 8.0)
+	
+	var time = char_fx.elapsed_time * speed
+	var wind = sin(time + (char_fx.relative_index * 0.2)) * cos(time * 0.7)
+	
+	char_fx.transform.x.y = wind * 0.2
+	char_fx.offset.x += wind * strength
+	char_fx.offset.y -= abs(wind) * (strength * 0.5)
+	
+	return true
+```
+
+### 📊 Configuration Parameters
+
+| Parameter | Default Value | Description |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Speed of the air gusts. |
+| **str** | `8.0` | Intensity of the swaying and pushing. |
+
+> **Usage Example:**
+> `[wind speed=2.0 str=8.0]Example text.[/wind]`
+
+---
+
+## 53. Star Fragment (Star Fragment)
+
+A magical levitation effect with random sparkles appearing on each letter.
+
+### 🖼️ Preview:
+![53](https://github.com/user-attachments/assets/0dadd58b-45c6-44b5-8c77-31a0d4539e6a)
+
+### 💻 Code:
+```gdscript
+@tool
+class_name RichTextStarFragment
+extends RichTextEffect
+
+var bbcode = "star"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 1.5)
+	var shine_speed = char_fx.env.get("shine", 5.0)
+	
+	var float_y = sin(char_fx.elapsed_time * speed + char_fx.relative_index * 0.5) * 4.0
+	char_fx.offset.y += float_y
+	
+	var glow = sin(char_fx.elapsed_time * shine_speed + (char_fx.relative_index * 91.0)) 
+	glow = pow(max(0.0, glow), 4.0)
+	
+	char_fx.color = char_fx.color.lerp(Color.WHITE, glow * 0.8)
+	var s = 1.0 + (glow * 0.15)
+	char_fx.transform = char_fx.transform.scaled_local(Vector2(s, s))
+	
+	return true
+```
+
+### 📊 Configuration Parameters
+
+| Parameter | Default Value | Description |
+| :--- | :---: | :--- |
+| **speed** | `1.5` | Levitation movement speed. |
+| **shine** | `5.0` | Frequency of the sparkles. |
+
+> **Usage Example:**
+> `[star speed=1.5 shine=5.0]Example text.[/star]`
+
+---
+
+## 54. Flicker (Flicker)
+
+An entry effect where characters flicker on and off like a faulty neon sign.
+
+### 🖼️ Preview:
+![54](https://github.com/user-attachments/assets/9216e086-24ed-4efa-b06d-8f8b09529e10)
+
+### 💻 Code:
+```gdscript
+@tool
+class_name RichTextFlicker
+extends RichTextEffect
+
+var bbcode = "flicker"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 1.0)
+	var t = (char_fx.elapsed_time - (char_fx.relative_index * 0.05)) * speed
+	if t < 0.0: char_fx.color.a = 0.0
+	elif t < 1.2:
+		var flash = [0, 1, 0, 1, 0, 1, 0, 1, 1][int(t * 7.5) % 9]
+		char_fx.color.a = float(flash)
+	else: char_fx.color.a = 1.0
+	return true
+```
+
+### 📊 Configuration Parameters
+
+| Parameter | Default Value | Description |
+| :--- | :---: | :--- |
+| **speed** | `1.0` | Flickering speed. |
+
+> **Usage Example:**
+> `[flicker speed=1.0]Example text.[/flicker]`
+
+---
+
+## 55. Blur Right (Blur Right Entrance)
+
+An entrance effect with motion blur coming from the right side.
+
+### 🖼️ Preview:
+![55](https://github.com/user-attachments/assets/5d77edd6-ae04-4ae4-8b4a-cae7cde16d3a)
+
+### 💻 Code:
+```gdscript
+@tool
+class_name RichTextBlurRight
+extends RichTextEffect
+
+var bbcode = "blur_r"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = clamp(char_fx.elapsed_time * 2.0 - (char_fx.relative_index * 0.05), 0.0, 1.0)
+	char_fx.offset.x = lerp(50.0, 0.0, t)
+	char_fx.color.a = t
+	if t < 0.5: char_fx.offset.x += randf_range(-2.0, 2.0)
+	return true
+```
+
+### 📊 Configuration Parameters
+
+| Parameter | Default Value | Description |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No additional parameters required. |
+
+> **Usage Example:**
+> `[blur_r]Example text.[/blur_r]`
+
+---
+
+## 56. Blur Left (Blur Left Entrance)
+
+An entrance effect with motion blur coming from the left side.
+
+### 🖼️ Preview:
+![56](https://github.com/user-attachments/assets/c36500d6-9b3d-412d-9343-15424aee3b12)
+
+### 💻 Code:
+```gdscript
+@tool
+class_name RichTextBlurLeft
+extends RichTextEffect
+
+var bbcode = "blur_l"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = clamp(char_fx.elapsed_time * 2.0 - (char_fx.relative_index * 0.05), 0.0, 1.0)
+	char_fx.offset.x = lerp(-50.0, 0.0, t)
+	char_fx.color.a = t
+	if t < 0.5: char_fx.offset.x += randf_range(-2.0, 2.0)
+	return true
+```
+
+### 📊 Configuration Parameters
+
+| Parameter | Default Value | Description |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No additional parameters required. |
+
+> **Usage Example:**
+> `[blur_l]Example text.[/blur_l]`
+
+---
+
+## 57. Fly Up (Flying Entrance)
+
+An entrance effect where letters fly in from the bottom of the screen with a smooth fade-in.
+
+### 🖼️ Preview:
 ![57](https://github.com/user-attachments/assets/e809de8d-7da1-4022-adba-ee651cc4c9b0)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextFlyUp
@@ -2041,25 +2236,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | No additional parameters required. |
 
-> **Ejemplo de uso:**
-> `[fly_up]Texto de ejemplo.[/fly_up]`
+> **Usage Example:**
+> `[fly_up]Example text.[/fly_up]`
 
 ---
 
-## 58. Wobble Jelly (Rebote de Gelatina)
+## 58. Wobble Jelly (Jelly Bounce)
 
-Las letras entran con un movimiento elástico y vibrante, simulando la física de una gelatina.
+Letters enter with an elastic and vibrant movement, simulating jelly physics.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![58](https://github.com/user-attachments/assets/eb36f97a-6399-45a5-a22d-1dc1a348f82a)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextWobbleJelly
@@ -2076,25 +2271,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | No additional parameters required. |
 
-> **Ejemplo de uso:**
-> `[wobble_j]Texto de ejemplo.[/wobble_j]`
+> **Usage Example:**
+> `[wobble_j]Example text.[/wobble_j]`
 
 ---
 
-## 59. Glitch Out (Salida Glitch)
+## 59. Glitch Out (Glitch Exit)
 
-Efecto de desintegración digital. Las letras vibran aleatoriamente y cambian de color antes de desaparecer.
+A digital disintegration exit effect. Letters vibrate randomly and shift colors before disappearing.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![59](https://github.com/user-attachments/assets/4d20cd07-0151-451c-a7eb-9fe3231f1581)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextGlitchOut
@@ -2118,26 +2313,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `1.5` | Velocidad de la desintegración. |
-| **delay** | `0.1` | Tiempo de espera entre caracteres. |
+| **speed** | `1.5` | Disintegration speed. |
+| **delay** | `0.1` | Wait time between characters during exit. |
 
-> **Ejemplo de uso:**
-| `[g_out speed=1.5 delay=0.1]Texto de ejemplo.[/g_out]`
+> **Usage Example:**
+> `[g_out speed=1.5 delay=0.1]Example text.[/g_out]`
 
 ---
 
-## 60. Spotlight Sweep (Barrido de Foco)
+## 60. Spotlight Sweep (Spotlight Sweep)
 
-Un haz de luz recorre el texto horizontalmente, iluminando las letras a su paso.
+A beam of light travels horizontally across the text, illuminating each letter as it passes.
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![60](https://github.com/user-attachments/assets/faff693a-6c64-4a7a-917d-10d7d3987f4a)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSpotlight
@@ -2154,15 +2349,14 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **N/A** | `N/A` | No requiere parámetros adicionales. |
+| **N/A** | `N/A` | No additional parameters required. |
 
-> **Ejemplo de uso:**
-> `[spotlight]Texto de ejemplo.[/spotlight]`
-
+> **Usage Example:**
+> `[spotlight]Example text.[/spotlight]`
 ---
 
 ## 61. Terminal Type (Efecto Terminal)
