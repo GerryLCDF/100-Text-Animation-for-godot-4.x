@@ -1,25 +1,25 @@
 # +101 Text Animation for Godot 4.x
-Una recopilación de animaciones personalizadas para utilizar en nodos `RichTextLabel`.
+A collection of custom animations for use in `RichTextLabel` nodes.
 
-### Cómo utilizar estos recursos
-Recuerda que esto es un recurso gratuito. Si decides utilizarlo en alguno de tus proyectos, agradecería los créditos, aunque eres totalmente libre de no hacerlo.
+### How to use these resources
+Remember that this is a free resource. If you decide to use it in any of your projects, credits would be appreciated, although you are entirely free not to do so.
 
-### Demostración en video
+### Video Demonstration
 https://youtu.be/t_KPnAE53gI
 ---
 
-## 1. Fade In (Aparición Suave)
+## 1. Fade In (Smooth Appearance)
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![1](https://github.com/user-attachments/assets/89ea952a-54c7-4d28-80e6-6ee40fb850cd)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextFadeIn
 extends RichTextEffect
 
-# ejemplo de uso [fade_in speed=1.0 delay=0.05 wait=0.0]Texto que aparece[/fade_in]
+# usage example [fade_in speed=1.0 delay=0.05 wait=0.0]Appearing text[/fade_in]
 var bbcode = "fade_in"
 
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
@@ -34,31 +34,31 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de la aparición suave. |
-| **delay** | `0.1` | Tiempo de espera entre cada letra. |
-| **wait** | `0.0` | Segundos de espera globales antes de iniciar. |
+| **speed** | `2.0` | Speed of the smooth fade-in appearance. |
+| **delay** | `0.1` | Wait time between each letter. |
+| **wait** | `0.0` | Global wait seconds before starting. |
 
-> **Ejemplo de uso:**
-> `[fade_in speed=1.0 delay=0.05 wait=0.2]Texto de ejemplo.[/fade_in]`
+> **Usage example:**
+> `[fade_in speed=1.0 delay=0.05 wait=0.2]Example text.[/fade_in]`
 
 ---
 
-## 2. Typewriter (Máquina de Escribir)
+## 2. Typewriter
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![2](https://github.com/user-attachments/assets/1ed074f3-63ca-41ee-9477-ddff1e8b3b09)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextTypewriter
 extends RichTextEffect
 
-# ejemplo de uso [type speed=20.0 wait=0.0]Este texto se escribe solo...[/type]
+# usage example [type speed=20.0 wait=0.0]This text writes itself...[/type]
 var bbcode = "type"
 
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
@@ -72,30 +72,30 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `15.0` | Cantidad de letras que se muestran por segundo. |
-| **wait** | `0.0` | Segundos que esperará el texto antes de empezar. |
+| **speed** | `15.0` | Amount of letters shown per second. |
+| **wait** | `0.0` | Seconds the text will wait before starting. |
 
-> **Ejemplo de uso:**
-> `[type speed=20.0 wait=0.5]Texto de ejemplo.[/type]`
+> **Usage example:**
+> `[type speed=20.0 wait=0.5]Example text.[/type]`
 
 ---
 
-## 3. Decode (Descifrado de Símbolos)
+## 3. Decode (Symbol Deciphering)
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![3](https://github.com/user-attachments/assets/6dd7506e-947e-42ba-a4a5-8c13a443fa74)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextDecode
 extends RichTextEffect
 
-# ejemplo de uso [decode speed=10.0 wait=0.5]Texto de ejemplo[/decode]
+# usage example [decode speed=10.0 wait=0.5]Example text[/decode]
 var bbcode = "decode"
 const SYMBOLS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()"
 
@@ -113,24 +113,24 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `5.0` | Velocidad de revelado de los caracteres. |
-| **wait** | `0.0` | Retraso antes de iniciar el descifrado. |
+| **speed** | `5.0` | Character reveal speed. |
+| **wait** | `0.0` | Delay before starting the decryption. |
 
-> **Ejemplo de uso:**
-> `[decode speed=10.0 wait=0.5]Texto de ejemplo.[/decode]`
+> **Usage example:**
+> `[decode speed=10.0 wait=0.5]Example text.[/decode]`
 
 ---
 
-## 4. Slide Up (Deslizar hacia Arriba)
+## 4. Slide Up
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![4](https://github.com/user-attachments/assets/0d368e15-8347-4d72-a3b4-9768a754aa10)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSlideUp
@@ -152,25 +152,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de la transición. |
-| **delay** | `0.05` | Tiempo entre cada letra. |
-| **dist** | `20.0` | Distancia desde la que sube el texto. |
+| **speed** | `2.0` | Speed of the transition. |
+| **delay** | `0.05` | Time between each letter. |
+| **dist** | `20.0` | Distance from which the text slides up. |
 
-> **Ejemplo de uso:**
-> `[slide_up speed=2.0 delay=0.05 dist=20.0]Texto de ejemplo.[/slide_up]`
+> **Usage example:**
+> `[slide_up speed=2.0 delay=0.05 dist=20.0]Example text.[/slide_up]`
 
 ---
 
-## 5. Bounce (Rebote Elástico)
+## 5. Bounce (Elastic Bounce)
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![5](https://github.com/user-attachments/assets/0dd4c149-950b-4e4b-bd3c-bb59b59e71d9)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextBounce
@@ -193,25 +193,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del rebote. |
-| **delay** | `0.08` | Tiempo de espera entre letras. |
-| **dist** | `50.0` | Altura máxima del salto inicial. |
+| **speed** | `2.0` | Speed of the bounce. |
+| **delay** | `0.08` | Wait time between letters. |
+| **dist** | `50.0` | Maximum height of the initial jump. |
 
-> **Ejemplo de uso:**
-> `[bounce speed=2.0 delay=0.08 dist=50.0]Texto de ejemplo.[/bounce]`
+> **Usage example:**
+> `[bounce speed=2.0 delay=0.08 dist=50.0]Example text.[/bounce]`
 
 ---
 
-## 6. Rotate In (Giro con Escala)
+## 6. Rotate In (Scale Rotation)
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![6](https://github.com/user-attachments/assets/7d39607b-bec0-44df-a44c-2b8e72920183)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextRotateIn
@@ -230,24 +230,24 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Rapidez del giro y crecimiento. |
-| **delay** | `0.05` | Escalonamiento entre caracteres. |
+| **speed** | `2.0` | Speed of the rotation and scale growth. |
+| **delay** | `0.05` | Stagger time between characters. |
 
-> **Ejemplo de uso:**
-> `[rotate_in speed=2.0 delay=0.05]Texto de ejemplo.[/rotate_in]`
+> **Usage example:**
+> `[rotate_in speed=2.0 delay=0.05]Example text.[/rotate_in]`
 
 ---
 
-## 7. Slide Down (Deslizar hacia Abajo)
+## 7. Slide Down
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![7](https://github.com/user-attachments/assets/4ca6df90-957e-4f2c-a449-0b931f9d4eba)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSlideDown
@@ -266,25 +266,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de caída. |
-| **delay** | `0.05` | Tiempo entre cada letra. |
-| **dist** | `30.0` | Distancia desde la que baja el texto. |
+| **speed** | `2.0` | Speed of the descent. |
+| **delay** | `0.05` | Time between each letter. |
+| **dist** | `30.0` | Distance from which the text slides down. |
 
-> **Ejemplo de uso:**
-> `[slide_down speed=2.0 delay=0.05 dist=30.0]Texto de ejemplo.[/slide_down]`
+> **Usage example:**
+> `[slide_down speed=2.0 delay=0.05 dist=30.0]Example text.[/slide_down]`
 
 ---
 
-## 8. Slide Left (Deslizar desde la Izquierda)
+## 8. Slide Left (Slide from the Left)
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![8](https://github.com/user-attachments/assets/bec1595f-d6c9-41d3-9ca8-b414c7a3002e)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSlideLeft
@@ -303,25 +303,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del deslizamiento. |
-| **delay** | `0.05` | Escalonamiento entre caracteres. |
-| **dist** | `40.0` | Distancia horizontal del efecto. |
+| **speed** | `2.0` | Speed of the slide. |
+| **delay** | `0.05` | Stagger time between characters. |
+| **dist** | `40.0` | Horizontal distance of the effect. |
 
-> **Ejemplo de uso:**
-> `[slide_left speed=2.0 delay=0.05 dist=40.0]Texto de ejemplo.[/slide_left]`
+> **Usage example:**
+> `[slide_left speed=2.0 delay=0.05 dist=40.0]Example text.[/slide_left]`
 
 ---
 
-## 9. Slide Right (Deslizar desde la Derecha)
+## 9. Slide Right (Slide from the Right)
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![9](https://github.com/user-attachments/assets/2fdd0dfd-c39a-4fb9-b132-edd6188e4640)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSlideRight
@@ -340,25 +340,25 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del deslizamiento. |
-| **delay** | `0.05` | Escalonamiento entre caracteres. |
-| **dist** | `40.0` | Distancia horizontal del efecto. |
+| **speed** | `2.0` | Speed of the slide. |
+| **delay** | `0.05` | Stagger time between characters. |
+| **dist** | `40.0` | Horizontal distance of the effect. |
 
-> **Ejemplo de uso:**
-> `[slide_right speed=2.0 delay=0.05 dist=40.0]Texto de ejemplo.[/slide_right]`
+> **Usage example:**
+> `[slide_right speed=2.0 delay=0.05 dist=40.0]Example text.[/slide_right]`
 
 ---
 
-## 10. Drop In (Caída con Rebote Pesado)
+## 10. Drop In (Heavy Bounce Drop)
 
-### 🖼️ Muestra:
+### 🖼️ Preview:
 ![10](https://github.com/user-attachments/assets/26398767-e164-48d1-95f2-914898a5d6b0)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextDropIn
@@ -384,25 +384,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `1.5` | Velocidad de caída y rebote. |
-| **delay** | `0.06` | Tiempo entre cada letra. |
-| **dist** | `100.0` | Altura desde la que cae. |
+| **speed** | `1.5` | Speed of the fall and bounce. |
+| **delay** | `0.06` | Time between each letter. |
+| **dist** | `100.0` | Height from which it drops. |
 
-> **Ejemplo de uso:**
-> `[drop_in speed=1.5 delay=0.06 dist=100.0]Texto de ejemplo.[/drop_in]`
+> **Usage example:**
+> `[drop_in speed=1.5 delay=0.06 dist=100.0]Example text.[/drop_in]`
 
 ---
 
-## 11. Swing (Balanceo de Péndulo)
+## 11. Swing (Pendulum Swing)
 
-### 🖼️ Muestra:
+An entry effect where characters swing like a pendulum until they settle.
+
+### 🖼️ Preview:
 ![11](https://github.com/user-attachments/assets/d5ae0b83-e516-4868-86fb-5005c6a55692)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSwing
@@ -424,25 +426,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `1.2` | Velocidad del balanceo. |
-| **delay** | `0.05` | Escalonamiento entre letras. |
-| **angle** | `15.0` | Ángulo máximo de balanceo inicial. |
+| **speed** | `1.2` | Swing speed. |
+| **delay** | `0.05` | Stagger delay between letters. |
+| **angle** | `15.0` | Initial maximum swing angle. |
 
-> **Ejemplo de uso:**
-> `[swing speed=1.2 delay=0.05 angle=15.0]Texto de ejemplo.[/swing]`
+> **Usage example:**
+> `[swing speed=1.2 delay=0.05 angle=15.0]Example text.[/swing]`
 
 ---
 
-## 12. Pulse In (Pulso de Entrada)
+## 12. Pulse In (Entry Pulse)
 
-### 🖼️ Muestra:
+Letters appear with a scaling pulse effect that settles into their final size.
+
+### 🖼️ Preview:
 ![12](https://github.com/user-attachments/assets/c9aa3d93-2eaa-456f-93a6-a231411e1bbc)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextPulse
@@ -466,25 +470,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del pulso. |
-| **delay** | `0.05` | Tiempo entre cada letra. |
-| **scale** | `1.2` | Tamaño máximo del pulso. |
+| **speed** | `2.0` | Pulse speed. |
+| **delay** | `0.05` | Time delay between letters. |
+| **scale** | `1.2` | Maximum pulse scale. |
 
-> **Ejemplo de uso:**
-> `[pulse speed=2.0 delay=0.05 scale=1.2]Texto de ejemplo.[/pulse]`
+> **Usage example:**
+> `[pulse speed=2.0 delay=0.05 scale=1.2]Example text.[/pulse]`
 
 ---
 
-## 13. Scale In (Aparición con Escala)
+## 13. Scale In (Appearance with Scale)
 
-### 🖼️ Muestra:
+Characters grow from zero to their original size while fading in.
+
+### 🖼️ Preview:
 ![13](https://github.com/user-attachments/assets/bc057bb2-c77e-42b1-9ac4-f0e8f708bd21)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextScaleIn extends RichTextEffect
@@ -504,25 +510,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `4.0` | Velocidad con la que el texto crece desde cero. |
-| **delay** | `0.05` | Tiempo de espera entre la escala de cada letra. |
-| **wait** | `0.0` | Segundos que esperará el texto antes de empezar. |
+| **speed** | `4.0` | Speed at which characters scale from zero. |
+| **delay** | `0.05` | Wait time between each letter's scaling. |
+| **wait** | `0.0` | Seconds the text waits before starting. |
 
-> **Ejemplo de uso:**
-> `[scale_in speed=4.0 delay=0.05 wait=0.0]Texto de ejemplo[/scale_in]`
+> **Usage example:**
+> `[scale_in speed=4.0 delay=0.05 wait=0.0]Example text[/scale_in]`
 
 ---
 
-## 14. Flash (Entrada con Parpadeo)
+## 14. Flash (Flashing Entry)
 
-### 🖼️ Muestra:
+An entry effect where characters flash on and off before remaining fully visible.
+
+### 🖼️ Preview:
 ![14](https://github.com/user-attachments/assets/0fc76db2-a538-4991-8e53-a90fc7df670b)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextFlash extends RichTextEffect
@@ -544,24 +552,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Rapidez del parpadeo inicial. |
-| **delay** | `0.05` | Escalonamiento entre caracteres. |
+| **speed** | `2.0` | Initial flash frequency. |
+| **delay** | `0.05` | Stagger delay between characters. |
 
-> **Ejemplo de uso:**
-> `[flash speed=2.0 delay=0.05]Texto de ejemplo[/flash]`
+> **Usage example:**
+> `[flash speed=2.0 delay=0.05]Example text[/flash]`
 
 ---
 
-## 15. Shake X (Temblor Horizontal de Entrada)
+## 15. Shake X (Horizontal Shake Entry)
 
-### 🖼️ Muestra:
+Characters appear while shaking horizontally, with the intensity fading out over time.
+
+### 🖼️ Preview:
 ![15](https://github.com/user-attachments/assets/7f0f8723-ca12-4d10-a851-de676349cbcb)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextShakeX extends RichTextEffect
@@ -584,24 +594,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `3.0` | Velocidad del temblor. |
-| **strength** | `10.0` | Fuerza del movimiento horizontal. |
+| **speed** | `3.0` | Shake frequency. |
+| **strength** | `10.0` | Horizontal shake intensity. |
 
-> **Ejemplo de uso:**
-> `[shake_x speed=3.0 strength=10.0]Texto de ejemplo[/shake_x]`
+> **Usage example:**
+> `[shake_x speed=3.0 strength=10.0]Example text[/shake_x]`
 
 ---
 
-## 16. Shake Y (Temblor Vertical de Entrada)
+## 16. Shake Y (Vertical Shake Entry)
 
-### 🖼️ Muestra:
+Characters appear while shaking vertically, with the intensity fading out over time.
+
+### 🖼️ Preview:
 ![16](https://github.com/user-attachments/assets/ed6eea12-c64c-4994-8b82-fd569590c838)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextShakeY extends RichTextEffect
@@ -624,24 +636,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `3.0` | Velocidad del temblor. |
-| **strength** | `10.0` | Fuerza del movimiento vertical. |
+| **speed** | `3.0` | Shake frequency. |
+| **strength** | `10.0` | Vertical shake intensity. |
 
-> **Ejemplo de uso:**
-> `[shake_y speed=3.0 strength=10.0]Texto de ejemplo[/shake_y]`
+> **Usage example:**
+> `[shake_y speed=3.0 strength=10.0]Example text[/shake_y]`
 
 ---
 
-## 17. Tada (Efecto Celebración)
+## 17. Tada (Celebration Effect)
 
-### 🖼️ Muestra:
+A celebratory entry effect that combines rapid scaling and rotating pulses.
+
+### 🖼️ Preview:
 ![17](https://github.com/user-attachments/assets/9787470e-9995-4490-b196-124c045d0031)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextTada extends RichTextEffect
@@ -665,24 +679,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de la animación completa. |
-| **delay** | `0.05` | Retraso entre cada letra. |
+| **speed** | `2.0` | Speed of the full animation. |
+| **delay** | `0.05` | Stagger delay between characters. |
 
-> **Ejemplo de uso:**
-> `[tada speed=2.0 delay=0.05]Texto de ejemplo[/tada]`
+> **Usage example:**
+> `[tada speed=2.0 delay=0.05]Example text[/tada]`
 
 ---
 
-## 18. Reveal (Barrido Lateral)
+## 18. Reveal (Lateral Sweep)
 
-### 🖼️ Muestra:
+Characters are revealed through a lateral sweep effect with a slight horizontal slide.
+
+### 🖼️ Preview:
 ![18](https://github.com/user-attachments/assets/4c73261a-7873-4525-b69a-e53249c23396)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextReveal extends RichTextEffect
@@ -702,25 +718,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del barrido. |
-| **delay** | `0.05` | Tiempo entre letras. |
-| **wait** | `0.0` | Tiempo de espera inicial. |
+| **speed** | `2.0` | Sweep speed. |
+| **delay** | `0.05` | Time delay between letters. |
+| **wait** | `0.0` | Initial wait time. |
 
-> **Ejemplo de uso:**
-> `[reveal speed=2.0 delay=0.05 wait=0.0]Texto de ejemplo[/reveal]`
+> **Usage example:**
+> `[reveal speed=2.0 delay=0.05 wait=0.0]Example text[/reveal]`
 
 ---
 
-## 19. Wave Jump (Salto de Onda)
+## 19. Wave Jump (Wave Bouncing)
 
-### 🖼️ Muestra:
+Characters jump following a continuous wave pattern.
+
+### 🖼️ Preview:
 ![19](https://github.com/user-attachments/assets/ae09d903-b82e-4d19-bb21-cb6486f787a1)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextWaveJump extends RichTextEffect
@@ -737,25 +755,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `3.0` | Velocidad del salto. |
-| **height** | `10.0` | Altura máxima del salto. |
-| **delay** | `0.1` | Curvatura de la onda. |
+| **speed** | `3.0` | Jump speed. |
+| **height** | `10.0` | Maximum jump height. |
+| **delay** | `0.1` | Wave curvature/offset. |
 
-> **Ejemplo de uso:**
-> `[wave_jump speed=3.0 height=10.0 delay=0.1]Texto de ejemplo[/wave_jump]`
+> **Usage example:**
+> `[wave_jump speed=3.0 height=10.0 delay=0.1]Example text[/wave_jump]`
 
 ---
 
-## 20. Wave Rotate (Rotación Ondulada)
+## 20. Wave Rotate (Wavy Rotation)
 
-### 🖼️ Muestra:
+Characters rotate back and forth following a continuous wave pattern.
+
+### 🖼️ Preview:
 ![20](https://github.com/user-attachments/assets/e4b47e2f-3f15-47af-aad3-ed9de12a2c43)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextWaveRotate extends RichTextEffect
@@ -772,25 +792,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `3.0` | Velocidad del balanceo. |
-| **angle** | `45.0` | Ángulo máximo de rotación. |
-| **delay** | `0.2` | Retraso entre caracteres. |
+| **speed** | `3.0` | Swing speed. |
+| **angle** | `45.0` | Maximum rotation angle. |
+| **delay** | `0.2` | Delay between characters. |
 
-> **Ejemplo de uso:**
-> `[wave_rot speed=3.0 angle=45.0 delay=0.2]Texto de ejemplo[/wave_rot]`
+> **Usage example:**
+> `[wave_rot speed=3.0 angle=45.0 delay=0.2]Example text[/wave_rot]`
 
 ---
 
-## 21. Roller 3D (Giro en Eje X)
+## 21. Roller 3D (X-Axis Rotation)
 
-### 🖼️ Muestra:
+An animation that simulates a 3D rotation of the letters along the X-axis, including shading effects.
+
+### 🖼️ Preview:
 ![21](https://github.com/user-attachments/assets/6e36c6cc-a529-4465-bc2e-523abb7a2942)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextRoller3d extends RichTextEffect
@@ -816,25 +838,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `3.0` | Velocidad de rotación. |
-| **height** | `1.0` | Multiplicador de escala vertical. |
-| **delay** | `0.1` | Desfase entre cada letra. |
+| **speed** | `3.0` | Rotation speed. |
+| **height** | `1.0` | Vertical scale multiplier. |
+| **delay** | `0.1` | Time offset between letters. |
 
-> **Ejemplo de uso:**
-> `[roller speed=3.0 height=1.0 delay=0.1]Texto de ejemplo[/roller]`
+> **Usage Example:**
+> `[roller speed=3.0 height=1.0 delay=0.1]Example text[/roller]`
 
 ---
 
-## 22. Slide Swap (Intercambio Vertical Infinito)
+## 22. Slide Swap (Infinite Vertical Swap)
 
-### 🖼️ Muestra:
+Letters slide vertically in a continuous loop, fading in and out at the edges.
+
+### 🖼️ Preview:
 ![22](https://github.com/user-attachments/assets/23d11673-d097-4809-b036-f648e2f4bb8b)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextSlideSwap extends RichTextEffect
@@ -855,25 +879,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del ciclo de intercambio. |
-| **dist** | `30.0` | Distancia del desplazamiento vertical. |
-| **delay** | `0.1` | Tiempo de espera entre caracteres. |
+| **speed** | `2.0` | Speed of the swap cycle. |
+| **dist** | `30.0` | Vertical displacement distance. |
+| **delay** | `0.1` | Wait time between characters. |
 
-> **Ejemplo de uso:**
-> `[slide_swap speed=2.0 dist=30.0 delay=0.1]Texto de ejemplo[/slide_swap]`
+> **Usage Example:**
+> `[slide_swap speed=2.0 dist=30.0 delay=0.1]Example text[/slide_swap]`
 
 ---
 
-## 23. Jello Loop (Vibración Gelatinosa)
+## 23. Jello Loop (Jelly Vibration)
 
-### 🖼️ Muestra:
+A continuous squash and stretch loop that gives the text a gelatinous look.
+
+### 🖼️ Preview:
 ![23](https://github.com/user-attachments/assets/72a32d25-2a53-44c4-82fb-9e6dbf596260)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextJelloLoop extends RichTextEffect
@@ -893,25 +919,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad de la oscilación gelatinosa. |
-| **delay** | `0.1` | Desfase de la vibración entre letras. |
-| **strength** | `0.2` | Intensidad de la deformación (Squash & Stretch). |
+| **speed** | `2.0` | Speed of the jelly oscillation. |
+| **delay** | `0.1` | Vibration offset between letters. |
+| **strength** | `0.2` | Deformation intensity (Squash & Stretch). |
 
-> **Ejemplo de uso:**
-> `[jello_loop speed=2.0 delay=0.1 strength=0.2]Texto de ejemplo[/jello_loop]`
+> **Usage Example:**
+> `[jello_loop speed=2.0 delay=0.1 strength=0.2]Example text[/jello_loop]`
 
 ---
 
-## 24. Rubber (Squash and Stretch de Entrada)
+## 24. Rubber (Entry Squash and Stretch)
 
-### 🖼️ Muestra:
+An entry effect where each letter appears with an elastic squash and stretch bounce.
+
+### 🖼️ Preview:
 ![24](https://github.com/user-attachments/assets/a712e073-fa46-4d7b-a3a3-9bbcb9f8ab2b)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextRubber extends RichTextEffect
@@ -934,24 +962,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.0` | Velocidad del rebote elástico. |
-| **delay** | `0.05` | Retraso entre la aparición de cada letra. |
+| **speed** | `2.0` | Elastic bounce speed. |
+| **delay** | `0.05` | Delay between each letter's appearance. |
 
-> **Ejemplo de uso:**
-> `[rubber speed=2.0 delay=0.05]Texto de ejemplo[/rubber]`
+> **Usage Example:**
+> `[rubber speed=2.0 delay=0.05]Example text[/rubber]`
 
 ---
 
-## 25. Wave Ocean (Ola Única)
+## 25. Wave Ocean (Single Wave)
 
-### 🖼️ Muestra:
+A single wave pass effect that moves across the text from left to right.
+
+### 🖼️ Preview:
 ![25](https://github.com/user-attachments/assets/f3534b09-b810-496c-9bce-fab52a48b28f)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextWaveOcean extends RichTextEffect
@@ -974,25 +1004,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `3.0` | Rapidez del paso de la ola. |
-| **delay** | `0.08` | Desfase para crear el efecto de curva. |
-| **dist** | `15.0` | Altura máxima de la ola. |
+| **speed** | `3.0` | Speed of the wave pass. |
+| **delay** | `0.08` | Offset used to create the curve effect. |
+| **dist** | `15.0` | Maximum height of the wave. |
 
-> **Ejemplo de uso:**
-> `[wave_ocean speed=3.0 delay=0.08 dist=15.0]Texto de ejemplo[/wave_ocean]`
+> **Usage Example:**
+> `[wave_ocean speed=3.0 delay=0.08 dist=15.0]Example text[/wave_ocean]`
 
 ---
 
-## 26. Stretch (Estiramiento Horizontal)
+## 26. Stretch (Horizontal Stretch)
 
-### 🖼️ Muestra:
+Each character stretches horizontally in a wave-like pattern.
+
+### 🖼️ Preview:
 ![26](https://github.com/user-attachments/assets/de1beb87-8542-439f-b2d2-d3c7446311a9)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextStretch extends RichTextEffect
@@ -1015,25 +1047,27 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `4.0` | Velocidad del estiramiento. |
-| **max_stretch** | `1.5` | Escala máxima horizontal (1.5 = 150%). |
-| **delay** | `0.05` | Retraso entre cada letra. |
+| **speed** | `4.0` | Stretching speed. |
+| **max_stretch** | `1.5` | Maximum horizontal scale (1.5 = 150%). |
+| **delay** | `0.05` | Delay between each letter. |
 
-> **Ejemplo de uso:**
-> `[stretch speed=4.0 delay=0.05 max_stretch=1.5]Texto de ejemplo[/stretch]`
+> **Usage Example:**
+> `[stretch speed=4.0 delay=0.05 max_stretch=1.5]Example text[/stretch]`
 
 ---
 
-## 27. Alpha Scroll (Revelado por Opacidad)
+## 27. Alpha Scroll (Opacity Reveal)
 
-### 🖼️ Muestra:
+A smooth reveal effect based on a progressive opacity change from left to right.
+
+### 🖼️ Preview:
 ![27](https://github.com/user-attachments/assets/a2c148c9-f592-4af3-ae9b-6ba495b7aa59)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextAlphaScroll extends RichTextEffect
@@ -1049,24 +1083,26 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `10.0` | Velocidad del revelado. |
-| **delay** | `0.1` | Tiempo entre la aparición de cada letra. |
+| **speed** | `10.0` | Reveal speed. |
+| **delay** | `0.1` | Time between each letter appearing. |
 
-> **Ejemplo de uso:**
-> `[alpha_scroll speed=10.0 delay=0.1]Texto de ejemplo[/alpha_scroll]`
+> **Usage Example:**
+> `[alpha_scroll speed=10.0 delay=0.1]Example text[/alpha_scroll]`
 
 ---
 
-## 28. Glitch Pop (Sustitución Aleatoria Brilla)
+## 28. Glitch Pop (Random Glow Substitution)
 
-### 🖼️ Muestra:
+Characters are occasionally replaced by random glitch symbols with a bright HDR glow.
+
+### 🖼️ Preview:
 ![28](https://github.com/user-attachments/assets/f46b66a4-5242-4bfe-9cd4-95437ca19ffe)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextGlitchPop extends RichTextEffect
@@ -1089,28 +1125,30 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 		
 		if new_glyph != -1:
 			char_fx.glyph_index = new_glyph
-			char_fx.color = Color(10.0, 10.0, 10.0, 1.0) # Brillo HDR
+			char_fx.color = Color(10.0, 10.0, 10.0, 1.0) # HDR Glow
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `2.5` | Frecuencia de los fallos (glitches). |
-| **f_size** | `16` | Tamaño de fuente para el cálculo del glifo. |
+| **speed** | `2.5` | Frequency of the glitches. |
+| **f_size** | `16` | Font size used for glyph calculation. |
 
-> **Ejemplo de uso:**
-> `[glitch_pop speed=2.5 f_size=16]Texto de ejemplo[/glitch_pop]`
+> **Usage Example:**
+> `[glitch_pop speed=2.5 f_size=16]Example text[/glitch_pop]`
 
 ---
 
-## 29. Caesar (Cifrado con Pop de Revelado)
+## 29. Caesar (Cipher with Reveal Pop)
 
-### 🖼️ Muestra:
+Text appears encrypted in cyan and deciphers itself letter by letter with a scale "pop" effect.
+
+### 🖼️ Preview:
 ![29](https://github.com/user-attachments/assets/65661f2b-3e16-48d6-9c8d-c07e49e7b9bc)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextCaesar extends RichTextEffect
@@ -1132,36 +1170,38 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 		var pop_curve = sin((diff / 0.3) * PI)
 		var current_scale = 1.0 + (pop_curve * (pop_scale - 1.0))
 		char_fx.transform = char_fx.transform.scaled_local(Vector2(current_scale, current_scale))
-		char_fx.color.v += pop_curve # Aumenta brillo
+		char_fx.color.v += pop_curve # Increase brightness
 		
 	if should_encrypt:
 		var ts = TextServerManager.get_primary_interface()
-		if char_fx.glyph_index != ts.font_get_glyph_index(char_fx.font, 16, 32, 0): # No espacios
+		if char_fx.glyph_index != ts.font_get_glyph_index(char_fx.font, 16, 32, 0): # No spaces
 			char_fx.glyph_index += shift
-			char_fx.color = Color(0.15, 0.81, 0.82, 1.0) # Color cian cifrado
+			char_fx.color = Color(0.15, 0.81, 0.82, 1.0) # Encrypted cyan color
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **delay** | `2.0` | Segundos antes de empezar a descifrar. |
-| **reveal_speed**| `5.0` | Velocidad de revelado de letras. |
-| **shift** | `3` | Desfase de caracteres del cifrado. |
-| **pop_scale** | `1.4` | Escala del efecto "pop" al revelarse. |
+| **delay** | `2.0` | Seconds before the deciphering starts. |
+| **reveal_speed**| `5.0` | Speed at which letters are revealed. |
+| **shift** | `3` | Cipher character shift offset. |
+| **pop_scale** | `1.4` | Scale of the "pop" effect upon reveal. |
 
-> **Ejemplo de uso:**
-> `[caesar delay=2.0 reveal_speed=5.0 shift=3]Texto Cifrado[/caesar]`
+> **Usage Example:**
+> `[caesar delay=2.0 reveal_speed=5.0 shift=3]Encrypted Text[/caesar]`
 
 ---
 
-## 30. Nervous (Agitación Errática)
+## 30. Nervous (Erratic Agitation)
 
-### 🖼️ Muestra:
+The text shakes erratically in all directions, perfect for representing nervous or scared characters.
+
+### 🖼️ Preview:
 ![30](https://github.com/user-attachments/assets/956efa5a-a9fd-4e7f-933d-f73b52a98c6c)
 
-### 💻 Codigo:
+### 💻 Code:
 ```gdscript
 @tool
 class_name RichTextNervous extends RichTextEffect
@@ -1183,16 +1223,15 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	return true
 ```
 
-### 📊 Parámetros de Configuración
+### 📊 Configuration Parameters
 
-| Parámetro | Valor por Defecto | Descripción |
+| Parameter | Default Value | Description |
 | :--- | :---: | :--- |
-| **speed** | `20.0` | Rapidez de la agitación. |
-| **strength** | `3.0` | Distancia máxima del temblor. |
+| **speed** | `20.0` | Agitation speed. |
+| **strength** | `3.0` | Maximum shake distance. |
 
-> **Ejemplo de uso:**
-> `[nervous speed=20.0 strength=3.0]Texto nervioso o asustado[/nervous]`
-
+> **Usage Example:**
+> `[nervous speed=20.0 strength=3.0]Nervous or scared text[/nervous]`
 ---
 
 ## 31. Squeeze In (Revelado por Compresión)
