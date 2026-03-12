@@ -10,8 +10,6 @@ https://youtu.be/t_KPnAE53gI
 
 ## 1. Fade In (Aparición Suave)
 
-Esta animación permite que el texto aparezca gradualmente cambiando su opacidad.
-
 ### 🖼️ Muestra:
 ![1](https://github.com/user-attachments/assets/89ea952a-54c7-4d28-80e6-6ee40fb850cd)
 
@@ -1941,4 +1939,1592 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 
 > **Ejemplo de uso:**
 > `[rot_x speed=2.0]Texto de ejemplo[/rot_x]`
+---
+
+## 57. Fly Up (Vuelo hacia arriba)
+
+Efecto de entrada donde las letras vuelan desde la parte inferior de la pantalla con un desvanecimiento suave.
+
+### 🖼️ Muestra:
+![57](https://github.com/user-attachments/assets/e809de8d-7da1-4022-adba-ee651cc4c9b0)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextFlyUp
+extends RichTextEffect
+
+var bbcode = "fly_up"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = clamp(char_fx.elapsed_time * 1.5 - (char_fx.relative_index * 0.03), 0.0, 1.0)
+	char_fx.offset.y = lerp(200.0, 0.0, t)
+	char_fx.color.a = t
+	return true
 ```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[fly_up]Texto de ejemplo.[/fly_up]`
+
+---
+
+## 58. Wobble Jelly (Rebote de Gelatina)
+
+Las letras entran con un movimiento elástico y vibrante, simulando la física de una gelatina.
+
+### 🖼️ Muestra:
+![58](https://github.com/user-attachments/assets/eb36f97a-6399-45a5-a22d-1dc1a348f82a)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextWobbleJelly
+extends RichTextEffect
+
+var bbcode = "wobble_j"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = clamp(char_fx.elapsed_time - (char_fx.relative_index * 0.05), 0.0, 1.0)
+	if t > 0.0 and t < 1.0:
+		char_fx.offset.x = sin(t * 15.0) * 10.0 * (1.0 - t)
+		char_fx.rotation = deg_to_rad(sin(t * 10.0) * 5.0 * (1.0 - t))
+	char_fx.color.a = t
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[wobble_j]Texto de ejemplo.[/wobble_j]`
+
+---
+
+## 59. Glitch Out (Salida Glitch)
+
+Efecto de desintegración digital. Las letras vibran aleatoriamente y cambian de color antes de desaparecer.
+
+### 🖼️ Muestra:
+![59](https://github.com/user-attachments/assets/4d20cd07-0151-451c-a7eb-9fe3231f1581)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextGlitchOut
+extends RichTextEffect
+
+var bbcode = "g_out"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 1.5)
+	var delay = char_fx.env.get("delay", 0.1)
+	
+	var time = clamp(char_fx.elapsed_time * speed - (char_fx.relative_index * delay), 0.0, 1.0)
+	
+	if time > 0.0:
+		char_fx.offset += Vector2(randf_range(-5.0, 5.0), randf_range(-5.0, 5.0)) * time
+		var s = 1.0 - time
+		char_fx.transform = char_fx.transform.scaled_local(Vector2(s, s))
+		char_fx.color.a = 1.0 - time
+		char_fx.color = char_fx.color.lerp(Color.RED if randf() > 0.5 else Color.CYAN, time)
+	
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `1.5` | Velocidad de la desintegración. |
+| **delay** | `0.1` | Tiempo de espera entre caracteres. |
+
+> **Ejemplo de uso:**
+| `[g_out speed=1.5 delay=0.1]Texto de ejemplo.[/g_out]`
+
+---
+
+## 60. Spotlight Sweep (Barrido de Foco)
+
+Un haz de luz recorre el texto horizontalmente, iluminando las letras a su paso.
+
+### 🖼️ Muestra:
+![60](https://github.com/user-attachments/assets/faff693a-6c64-4a7a-917d-10d7d3987f4a)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextSpotlight
+extends RichTextEffect
+
+var bbcode = "spotlight"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var cycle = fmod(char_fx.elapsed_time * 0.5, 2.0)
+	var dist = abs(char_fx.relative_index * 0.1 - cycle)
+	var lum = clamp(1.0 - dist * 2.0, 0.3, 1.0)
+	char_fx.color *= lum
+	if lum > 0.8: char_fx.color = char_fx.color.lerp(Color.WHITE, lum - 0.8)
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[spotlight]Texto de ejemplo.[/spotlight]`
+
+---
+
+## 61. Terminal Type (Efecto Terminal)
+
+Simula una consola antigua. Las letras aparecen una a una con un parpadeo de brillo al surgir.
+
+### 🖼️ Muestra:
+![61](https://github.com/user-attachments/assets/7b858d03-75f7-4345-879f-4060da80dfa9)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextTerminal
+extends RichTextEffect
+
+var bbcode = "term"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 10.0)
+	var time = char_fx.elapsed_time * speed
+	char_fx.color.a = 1.0 if time > char_fx.relative_index else 0.0
+	if int(time) == char_fx.relative_index:
+		char_fx.color = Color.WHITE
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `10.0` | Cantidad de letras por segundo. |
+
+> **Ejemplo de uso:**
+> `[term speed=15.0]Texto de ejemplo.[/term]`
+
+---
+
+## 62. RGB Glitch Shift (Desfase RGB)
+
+Entrada con distorsión cromática que separa los canales rojo y azul brevemente.
+
+### 🖼️ Muestra:
+![62](https://github.com/user-attachments/assets/dc9648d1-3cc0-4bab-b3d0-4259bcb93302)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextRGBGlitch
+extends RichTextEffect
+
+var bbcode = "rgb_g"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = clamp(char_fx.elapsed_time * 2.5 - (char_fx.relative_index * 0.1), 0.0, 1.0)
+	if t < 1.0:
+		var shift = sin(char_fx.elapsed_time * 20.0) * 2.0
+		char_fx.offset.x += shift
+		char_fx.color = Color(1, 0, 0, t) if shift > 0 else Color(0, 0, 1, t)
+	else:
+		char_fx.color.a = 1.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[rgb_g]Texto de ejemplo.[/rgb_g]`
+
+---
+
+## 63. Water Drop (Gota de Agua)
+
+Las letras caen desde arriba y realizan un efecto de "squash and stretch" al impactar.
+
+### 🖼️ Muestra:
+![63](https://github.com/user-attachments/assets/1ae06051-1df7-449b-a324-987ad1b4f3d7)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextWaterDrop
+extends RichTextEffect
+
+var bbcode = "water"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = clamp(char_fx.elapsed_time * 1.6 - (char_fx.relative_index * 0.05), 0.0, 1.0)
+	char_fx.offset.y = lerp(-100.0, 0.0, t)
+	var squash = 1.0
+	if t > 0.5 and t < 0.8: squash = 1.5
+	char_fx.transform = char_fx.transform.scaled_local(Vector2(squash, 2.0 - squash))
+	char_fx.color.a = t
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[water]Texto de ejemplo.[/water]`
+
+---
+
+## 64. Falling Leaves (Hojas Cayendo)
+
+Las letras caen suavemente con una rotación oscilatoria, imitando la caída de una hoja.
+
+### 🖼️ Muestra:
+![64](https://github.com/user-attachments/assets/b09669b2-e3c3-4ab5-86c6-c6b13a9211f6)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextLeaves
+extends RichTextEffect
+
+var bbcode = "leaves"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = (char_fx.elapsed_time - (char_fx.relative_index * 0.1)) * 0.6
+	char_fx.offset.y = t * 100.0 - 50.0
+	char_fx.offset.x = sin(t * 5.0) * 20.0
+	char_fx.rotation = t * 2.0
+	char_fx.color.a = clamp(1.0 - t, 0.0, 1.0) if t > 0.8 else clamp(t * 2.0, 0.0, 1.0)
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[leaves]Texto de ejemplo.[/leaves]`
+
+---
+
+## 65. Squeeze Expand (Estiramiento)
+
+Entrada mediante un estiramiento vertical que se asienta en su tamaño original.
+
+### 🖼️ Muestra:
+![65](https://github.com/user-attachments/assets/08b982ff-cc6f-4b3e-a0fa-53a91db8dcde)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextSqueezeExpand
+extends RichTextEffect
+
+var bbcode = "sq_ex"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = clamp(char_fx.elapsed_time * 1.2 - (char_fx.relative_index * 0.05), 0.0, 1.0)
+	var scale_y = lerp(0.1, 1.2, t) if t < 0.5 else lerp(1.2, 1.0, (t-0.5)*2.0)
+	char_fx.transform = char_fx.transform.scaled_local(Vector2(1.0, scale_y))
+	char_fx.color.a = t
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[sq_ex]Texto de ejemplo.[/sq_ex]`
+
+---
+
+## 66. Sink Hole (Caída al Vacío)
+
+Efecto de salida donde las letras caen pesadamente y rotan mientras desaparecen.
+
+### 🖼️ Muestra:
+![66](https://github.com/user-attachments/assets/bab15daf-5aed-4960-82db-cde1a06ce2f5)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextSinkHole
+extends RichTextEffect
+
+var bbcode = "sink"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var delay = char_fx.env.get("delay", 0.05)
+	var time = clamp(char_fx.elapsed_time * speed - (char_fx.relative_index * delay), 0.0, 1.0)
+	if time > 0.0:
+		char_fx.offset.y += pow(time * 10.0, 2.0)
+		char_fx.rotation = deg_to_rad(time * 45.0)
+		char_fx.color.a = 1.0 - time
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Velocidad de la caída. |
+| **delay** | `0.05` | Retraso entre cada letra. |
+
+> **Ejemplo de uso:**
+> `[sink speed=2.0 delay=0.05]Texto de ejemplo.[/sink]`
+---
+
+## 67. Split Join (Unión Dividida)
+
+Las letras entran desde los laterales de forma alterna (una por izquierda, otra por derecha) hasta unirse en el centro.
+
+### 🖼️ Muestra:
+![67](https://github.com/user-attachments/assets/f9566b08-8168-4a8e-bfc5-b72331ed29c9)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextSplitJoin
+extends RichTextEffect
+
+var bbcode = "split_join"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var t = clamp(char_fx.elapsed_time * speed - (char_fx.relative_index * 0.05), 0.0, 1.0)
+	var inv = 1.0 - t
+	var side = 1.0 if char_fx.relative_index % 2 == 0 else -1.0
+	char_fx.offset.x = side * (200.0 * inv)
+	char_fx.color.a = t
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Velocidad con la que se unen las letras. |
+
+> **Ejemplo de uso:**
+> `[split_join speed=2.0]Texto de ejemplo.[/split_join]`
+
+---
+
+## 68. Wheel In Left (Rueda desde Izquierda)
+
+Efecto de entrada donde cada letra aparece rodando desde el lado izquierdo hasta su posición final.
+
+### 🖼️ Muestra:
+![68](https://github.com/user-attachments/assets/2a7a59c7-fa4a-4146-8f30-613880444a46)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextWheelL
+extends RichTextEffect
+
+var bbcode = "wheel_l"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var t = clamp(char_fx.elapsed_time * speed - (char_fx.relative_index * 0.1), 0.0, 1.0)
+	var inv = 1.0 - t
+	var angle = inv * -PI * 2.0
+	
+	char_fx.transform.x = Vector2(cos(angle), sin(angle))
+	char_fx.transform.y = Vector2(-sin(angle), cos(angle))
+	char_fx.offset.x = inv * -100.0
+	char_fx.color.a = t
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Velocidad de rotación y traslación. |
+
+> **Ejemplo de uso:**
+> `[wheel_l speed=2.0]Texto de ejemplo.[/wheel_l]`
+
+---
+
+## 69. Wheel In Right (Rueda desde Derecha)
+
+Efecto de entrada donde cada letra aparece rodando desde el lado derecho hasta su posición final.
+
+### 🖼️ Muestra:
+![69](https://github.com/user-attachments/assets/c292004a-bd42-4c0c-a24d-bc79f7eb0fa8)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextWheelR
+extends RichTextEffect
+
+var bbcode = "wheel_r"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var t = clamp(char_fx.elapsed_time * speed - (char_fx.relative_index * 0.1), 0.0, 1.0)
+	var inv = 1.0 - t
+	var angle = inv * PI * 2.0
+	
+	char_fx.transform.x = Vector2(cos(angle), sin(angle))
+	char_fx.transform.y = Vector2(-sin(angle), cos(angle))
+	char_fx.offset.x = inv * 100.0
+	char_fx.color.a = t
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Velocidad de rotación y traslación. |
+
+> **Ejemplo de uso:**
+> `[wheel_r speed=2.0]Texto de ejemplo.[/wheel_r]`
+
+---
+
+## 70. Sequential Flip (Giro en Cadena)
+
+Las letras realizan un giro de 360 grados sobre su propio eje de forma secuencial.
+
+### 🖼️ Muestra:
+![70](https://github.com/user-attachments/assets/6a1f5ab4-2997-4131-9010-f837135c4048)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextSequentialFlip
+extends RichTextEffect
+
+var bbcode = "seq_flip"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 3.0)
+	var total_time = char_fx.elapsed_time * speed
+	var char_trigger_time = char_fx.relative_index * 0.5
+	var local_t = clamp(fmod(total_time - char_trigger_time, 10.0), 0.0, 1.0) 
+	
+	if local_t > 0.0 and local_t < 1.0:
+		var angle = local_t * PI * 2.0
+		char_fx.transform.x = Vector2(cos(angle), sin(angle))
+		char_fx.transform.y = Vector2(-sin(angle), cos(angle))
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `3.0` | Velocidad del giro. |
+
+> **Ejemplo de uso:**
+> `[seq_flip speed=3.0]Texto de ejemplo.[/seq_flip]`
+
+---
+
+## 71. Double Clash Sweep (Choque de Barrido)
+
+Dos olas de luz viajan desde extremos opuestos y combinan su color al encontrarse en cada letra.
+
+### 🖼️ Muestra:
+![71](https://github.com/user-attachments/assets/d7739dbc-f547-484d-8d05-b477ed21fc0c)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextDoubleClash
+extends RichTextEffect
+
+var bbcode = "clash"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 3.0)
+	var delay = char_fx.env.get("delay", 0.15)
+	var color_1 = char_fx.env.get("c1", Color.CYAN)
+	var color_2 = char_fx.env.get("c2", Color.RED)
+	
+	var total_chars = char_fx.glyph_count
+	var cycle_duration = (total_chars * delay) + 2.0
+	var time = fmod(char_fx.elapsed_time, cycle_duration)
+	
+	var local_t1 = time - (char_fx.relative_index * delay)
+	var local_t2 = time - ((total_chars - 1 - char_fx.relative_index) * delay)
+	
+	var i1 = exp(-pow((local_t1 * speed - 0.5) * 4.0, 2.0)) if local_t1 > 0.0 else 0.0
+	var i2 = exp(-pow((local_t2 * speed - 0.5) * 4.0, 2.0)) if local_t2 > 0.0 else 0.0
+	
+	if i1 > 0.1 and i2 > 0.1:
+		var clash = (i1 + i2) * 0.5
+		char_fx.color = char_fx.color.lerp(Color.WHITE, clash).lerp(color_1.lerp(color_2, 0.5), clash * 0.8)
+		char_fx.transform = char_fx.transform.scaled_local(Vector2(1.0 + clash * 0.3, 1.0 + clash * 0.3))
+	elif i1 > 0.1:
+		char_fx.color = char_fx.color.lerp(color_1, i1)
+	elif i2 > 0.1:
+		char_fx.color = char_fx.color.lerp(color_2, i2)
+		
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `3.0` | Velocidad de las olas de luz. |
+| **delay** | `0.15` | Tiempo entre cada letra. |
+| **c1** | `Color.CYAN` | Color del barrido desde la izquierda. |
+| **c2** | `Color.RED` | Color del barrido desde la derecha. |
+
+> **Ejemplo de uso:**
+> `[clash speed=3.0 c1=00ffff c2=ff0000]Texto de ejemplo.[/clash]`
+
+---
+
+## 72. Perspective Tilt (Inclinación 3D)
+
+El texto oscila lateralmente con un efecto de deformación que simula profundidad 3D.
+
+### 🖼️ Muestra:
+![72](https://github.com/user-attachments/assets/cee46103-5b8d-4963-917b-bed8259b771e)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextPerspectiveTilt
+extends RichTextEffect
+
+var bbcode = "tilt"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var angle_max = char_fx.env.get("angle", 0.5)
+	var skew = sin(char_fx.elapsed_time * speed) * angle_max
+	char_fx.transform.x.y = skew 
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Velocidad de la oscilación. |
+| **angle** | `0.5` | Máximo ángulo de inclinación. |
+
+> **Ejemplo de uso:**
+> `[tilt speed=2.0 angle=0.4]Texto de ejemplo.[/tilt]`
+
+---
+
+## 73. Loading Dot (Carga)
+
+Las letras saltan de forma cíclica una por una, imitando un indicador de carga.
+
+### 🖼️ Muestra:
+![73](https://github.com/user-attachments/assets/edabf83c-34ab-43b3-8d74-e51699ce3c98)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextLoading
+extends RichTextEffect
+
+var bbcode = "load"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 5.0)
+	var height = char_fx.env.get("height", 8.0)
+	var t = fmod(char_fx.elapsed_time * speed - char_fx.relative_index, char_fx.glyph_count * 1.5)
+	
+	if t > 0.0 and t < PI:
+		char_fx.offset.y -= sin(t) * height
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `5.0` | Rapidez del ciclo de salto. |
+| **height** | `8.0` | Altura máxima del salto. |
+
+> **Ejemplo de uso:**
+> `[load speed=5.0 height=10.0]Texto de ejemplo.[/load]`
+
+---
+
+## 74. Breath Glow (Respiración)
+
+El texto pulsa suavemente cambiando su brillo y opacidad, como si estuviera respirando.
+
+### 🖼️ Muestra:
+![74](https://github.com/user-attachments/assets/00025835-dcea-4376-aacc-5b79b96e3752)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextBreath
+extends RichTextEffect
+
+var bbcode = "breath"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var pulse = (sin(char_fx.elapsed_time * speed) + 1.0) / 2.0
+	char_fx.color = char_fx.color.lerp(Color.WHITE, pulse * 0.7)
+	char_fx.color.a = lerp(0.4, 1.0, pulse)
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Velocidad del ciclo de respiración. |
+
+> **Ejemplo de uso:**
+> `[breath speed=2.0]Texto de ejemplo.[/breath]`
+
+---
+
+## 75. Heartbeat (Latido)
+
+Simula el ritmo de un corazón (lub-dub) aplicando un pulso doble a la escala del texto.
+
+### 🖼️ Muestra:
+![75](https://github.com/user-attachments/assets/1f67f0d1-d788-4acd-856c-b57ac6978c93)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextHeartbeat
+extends RichTextEffect
+
+var bbcode = "heart"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 1.0)
+	var t = fmod(char_fx.elapsed_time * speed, 2.0)
+	var s = 1.0
+	
+	if t < 0.2: s = 1.2
+	elif t < 0.4: s = 1.0
+	elif t < 0.6: s = 1.15
+	else: s = 1.0
+	
+	char_fx.transform = char_fx.transform.scaled_local(Vector2(s, s))
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `1.0` | Frecuencia de los latidos. |
+
+> **Ejemplo de uso:**
+> `[heart speed=1.5]Texto de ejemplo.[/heart]`
+
+---
+
+## 76. Static Noise (Estática)
+
+Vibración caótica y cambios de opacidad aleatorios que simulan la estática de un televisor antiguo.
+
+### 🖼️ Muestra:
+![76](https://github.com/user-attachments/assets/901016c1-6495-4448-a79a-be3f80689cda)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextStatic
+extends RichTextEffect
+
+var bbcode = "static"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	if randf() > 0.8:
+		char_fx.offset += Vector2(randf_range(-1, 1), randf_range(-1, 1))
+		char_fx.color.a = randf_range(0.6, 1.0)
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[static]Texto de ejemplo.[/static]`
+
+---
+
+## 77. Snake (Serpiente)
+
+El texto se desplaza siguiendo una trayectoria sinuosa en forma de "S", imitando el movimiento de una serpiente.
+
+### 🖼️ Muestra:
+![77](https://github.com/user-attachments/assets/95f54edd-f1fe-4696-b2e4-ba107134b100)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextSnake
+extends RichTextEffect
+
+var bbcode = "snake"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 3.0)
+	var amp = char_fx.env.get("amp", 10.0)
+	var t = char_fx.elapsed_time * speed + char_fx.relative_index * 0.4
+	
+	char_fx.offset.x += cos(t) * amp
+	char_fx.offset.y += sin(t * 0.5) * amp
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `3.0` | Velocidad del desplazamiento. |
+| **amp** | `10.0` | Amplitud del movimiento (qué tanto se aleja del centro). |
+
+> **Ejemplo de uso:**
+> `[snake speed=3.0 amp=10.0]Texto de ejemplo.[/snake]`
+
+---
+
+## 78. Mirror (Reflejo en Agua)
+
+Crea una distorsión de inclinación y balanceo vertical que simula el reflejo sobre una superficie líquida.
+
+### 🖼️ Muestra:
+![78](https://github.com/user-attachments/assets/426531b3-a62d-4632-a2f9-ddcbaed35b93)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextMirror
+extends RichTextEffect
+
+var bbcode = "mirror"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 4.0)
+	var t = char_fx.elapsed_time * speed + char_fx.relative_index
+	
+	char_fx.transform.x.y = sin(t) * 0.2
+	char_fx.offset.y += cos(t) * 2.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `4.0` | Velocidad de la oscilación del reflejo. |
+
+> **Ejemplo de uso:**
+> `[mirror speed=4.0]Texto de ejemplo.[/mirror]`
+
+---
+
+## 79. Stairs (Escalón)
+
+Las letras suben y bajan de posición en "escalones" discretos, creando un movimiento rítmico y mecánico.
+
+### 🖼️ Muestra:
+![79](https://github.com/user-attachments/assets/b48e9905-49f7-4668-9e26-efca12e5f1c9)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextStairs
+extends RichTextEffect
+
+var bbcode = "stairs"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = char_fx.elapsed_time * 2.0 + char_fx.relative_index * 0.2
+	var step = floor(sin(t) * 3.0)
+	
+	char_fx.offset.y += step * 5.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[stairs]Texto de ejemplo.[/stairs]`
+
+---
+
+## 80. Magnet (Atracción Magnética)
+
+Las letras se separan y vuelven a juntarse hacia el centro del texto, como si un imán las jalara y soltara rítmicamente.
+
+### 🖼️ Muestra:
+![80](https://github.com/user-attachments/assets/6d932646-654b-4372-b2b1-fc3d98b330bb)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextMagnet
+extends RichTextEffect
+
+var bbcode = "magnet"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 2.0)
+	var center = char_fx.glyph_count / 2.0
+	var dist = char_fx.relative_index - center
+	var pull = sin(char_fx.elapsed_time * speed) * dist * 5.0
+	
+	char_fx.offset.x += pull
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `2.0` | Velocidad del ciclo de atracción/repulsión. |
+
+> **Ejemplo de uso:**
+> `[magnet speed=2.0]Texto de ejemplo.[/magnet]`
+
+---
+
+## 81. Glitch Block (Bloque de Error)
+
+Mueve caracteres de forma lateral muy rápida y aumenta su brillo esporádicamente, simulando un fallo de señal.
+
+### 🖼️ Muestra:
+![81](https://github.com/user-attachments/assets/69897c23-20a6-4e98-be03-0218a343ed5d)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextGlitchBlock
+extends RichTextEffect
+
+var bbcode = "g_block"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	if fmod(char_fx.elapsed_time, 0.5) < 0.1:
+		char_fx.offset.x += randf_range(-10, 10)
+		char_fx.color.v += 2.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[g_block]Texto de ejemplo.[/g_block]`
+
+---
+
+## 82. Orbit (Órbita)
+
+Cada letra gira individualmente en círculos pequeños alrededor de su posición original.
+
+### 🖼️ Muestra:
+![82](https://github.com/user-attachments/assets/53b28829-aaf0-4b75-863e-9bfbe2011040)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextOrbit
+extends RichTextEffect
+
+var bbcode = "orbit"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = char_fx.elapsed_time * 4.0 + char_fx.relative_index * 0.5
+	char_fx.offset += Vector2(cos(t), sin(t)) * 8.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[orbit]Texto de ejemplo.[/orbit]`
+
+---
+
+## 83. Ghost Trail (Rastro Fantasma)
+
+Las letras parpadean y dejan de estar fijas, simulando una estela o rastro transparente en movimiento.
+
+### 🖼️ Muestra:
+![83](https://github.com/user-attachments/assets/1e597318-9f24-4706-aaed-d3452b0fa0c0)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextGhostTrail
+extends RichTextEffect
+
+var bbcode = "trail"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = sin(char_fx.elapsed_time * 10.0 + char_fx.relative_index)
+	char_fx.color.a = 0.5 + t * 0.5
+	if t > 0.8:
+		char_fx.offset.x += 4.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[trail]Texto de ejemplo.[/trail]`
+
+---
+
+## 84. Earthquake (Terremoto)
+
+Sacudidas violentas en todas direcciones que aumentan y disminuyen de intensidad rítmicamente.
+
+### 🖼️ Muestra:
+![84](https://github.com/user-attachments/assets/30c1ad5f-82b6-4a17-8819-2bb09b9bb904)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextQuake
+extends RichTextEffect
+
+var bbcode = "quake"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var intensity = (sin(char_fx.elapsed_time * 0.5) + 1.0) * 5.0
+	char_fx.offset += Vector2(randf_range(-1,1), randf_range(-1,1)) * intensity
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[quake]Texto de ejemplo.[/quake]`
+
+---
+
+## 85. Liquid (Calor Líquido)
+
+Deforma suavemente el eje de las letras de forma sinusoidal, similar a la distorsión del aire por calor intenso.
+
+### 🖼️ Muestra:
+![85](https://github.com/user-attachments/assets/8316f8b1-e8e4-4ea4-9eb5-1e8696d214cb)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextLiquid
+extends RichTextEffect
+
+var bbcode = "liquid"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var speed = char_fx.env.get("speed", 3.0)
+	var t = char_fx.elapsed_time * speed + char_fx.relative_index * 0.3
+	
+	char_fx.transform.x.y = sin(t) * 0.3
+	char_fx.transform.y.x = cos(t) * 0.2
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **speed** | `3.0` | Velocidad de la distorsión líquida. |
+
+> **Ejemplo de uso:**
+> `[liquid speed=3.0]Texto de ejemplo.[/liquid]`
+
+---
+
+## 86. Drifting (Derrape)
+
+Las letras se desplazan suavemente hacia la derecha mientras se desvanecen y reaparecen instantáneamente a la izquierda.
+
+### 🖼️ Muestra:
+![86](https://github.com/user-attachments/assets/fba871df-ad99-4f9a-a563-65b1f7f217e9)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextDrift
+extends RichTextEffect
+
+var bbcode = "drift"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = fmod(char_fx.elapsed_time + char_fx.relative_index * 0.1, 2.0)
+	char_fx.offset.x = lerp(0.0, 30.0, t / 2.0)
+	char_fx.color.a = 1.0 - (t / 2.0)
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[drift]Texto de ejemplo.[/drift]`
+
+---
+
+## 87. Yoshi’s Island (Mareado)
+
+Inspirado en el efecto "Touch Fuzzy, Get Dizzy". Las letras se balancean y cambian de tamaño de forma errática.
+
+### 🖼️ Muestra:
+![87](https://github.com/user-attachments/assets/c53c67d6-d4c1-4fa1-8abd-e2910d3d3948)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextYoshi
+extends RichTextEffect
+
+var bbcode = "yoshi"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = char_fx.elapsed_time * 3.0
+	char_fx.offset += Vector2(sin(t), cos(t * 1.5)) * 10.0
+	char_fx.transform = char_fx.transform.scaled_local(Vector2(1.0 + sin(t)*0.2, 1.0 + cos(t)*0.2))
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[yoshi]Texto de ejemplo.[/yoshi]`
+
+---
+
+## 88. Pokémon Damage (Daño)
+
+Simula la sacudida horizontal rápida que ocurre cuando un Pokémon recibe un golpe en los juegos clásicos.
+
+### 🖼️ Muestra:
+![88](https://github.com/user-attachments/assets/54dc1264-be72-4631-ae3b-b3c7e71e12a8)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextPkmn
+extends RichTextEffect
+
+var bbcode = "pkmn"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = fmod(char_fx.elapsed_time, 0.4)
+	if t < 0.2: char_fx.offset.x += 15.0
+	else: char_fx.offset.x -= 15.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[pkmn]Texto de ejemplo.[/pkmn]`
+
+---
+
+## 89. Zelda Item (Tesoro)
+
+Las letras brillan en color dorado y se elevan suavemente, como cuando Link obtiene un objeto importante.
+
+### 🖼️ Muestra:
+![89](https://github.com/user-attachments/assets/b97bf6df-015f-430f-bb30-470e18c05df5)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextZelda
+extends RichTextEffect
+
+var bbcode = "zelda"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var light = abs(sin(char_fx.elapsed_time * 4.0 + char_fx.relative_index))
+	char_fx.color = char_fx.color.lerp(Color.GOLD, light)
+	char_fx.offset.y -= light * 5.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[zelda]Texto de ejemplo.[/zelda]`
+
+---
+
+## 90. Persona 5 (Estilo P5)
+
+Inclinación fija con una vibración caótica de los caracteres, imitando la interfaz dinámica de Persona 5.
+
+### 🖼️ Muestra:
+![90](https://github.com/user-attachments/assets/62cbc5c0-dedd-4231-b6a3-69f2a0e9d102)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextP5
+extends RichTextEffect
+
+var bbcode = "p5"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	char_fx.transform.x.y = 0.3
+	if fmod(char_fx.elapsed_time, 0.2) > 0.1:
+		char_fx.offset += Vector2(randf_range(-2,2), randf_range(-2,2))
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[p5]Texto de ejemplo.[/p5]`
+
+---
+
+## 91. Undertale Sans (Voz de Sans)
+
+Las letras saltan de forma rítmica y desfasada, imitando el estilo de diálogo de Sans el esqueleto.
+
+### 🖼️ Muestra:
+![91](https://github.com/user-attachments/assets/1f3bbdf1-eb22-42d6-a537-6b01781f77c7)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextSans
+extends RichTextEffect
+
+var bbcode = "sans"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var step = int(char_fx.elapsed_time * 10.0)
+	if (step + char_fx.relative_index) % 4 == 0:
+		char_fx.offset.y -= 4.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[sans]Texto de ejemplo.[/sans]`
+
+---
+
+## 92. Minecraft Enchant (Runas)
+
+Los caracteres cambian aleatoriamente a símbolos extraños y se tornan púrpuras, como en la mesa de encantamientos.
+
+### 🖼️ Muestra:
+![92](https://github.com/user-attachments/assets/12768a22-47a9-424b-9997-5a60d85e991b)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextEnchant
+extends RichTextEffect
+
+var bbcode = "enchant"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	if randf() > 0.95:
+		char_fx.glyph_index += randi_range(1, 20)
+		char_fx.color = Color.PURPLE
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[enchant]Texto de ejemplo.[/enchant]`
+
+---
+
+## 93. MGS Alert (¡Alert!)
+
+El texto salta violentamente y parpadea en rojo brillante, imitando el ícono de alerta de Metal Gear Solid.
+
+### 🖼️ Muestra:
+![93](https://github.com/user-attachments/assets/cb8b7c5b-edbf-483a-bf79-bad2381fd84a)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextAlert
+extends RichTextEffect
+
+var bbcode = "alert"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var s = sin(char_fx.elapsed_time * 20.0)
+	char_fx.offset.y -= abs(s) * 10.0
+	char_fx.color = Color.RED if s > 0 else Color.WHITE
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[alert]Texto de ejemplo.[/alert]`
+
+---
+
+## 94. Mario Fireball (Fuego)
+
+Las letras rebotan siguiendo una trayectoria parabólica y cambian entre colores naranja y amarillo.
+
+### 🖼️ Muestra:
+![94](https://github.com/user-attachments/assets/71fe6f66-3dd0-408b-bc03-a51dcaee4af7)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextFireball
+extends RichTextEffect
+
+var bbcode = "mfire"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = fmod(char_fx.elapsed_time * 3.0 + char_fx.relative_index * 0.5, PI)
+	char_fx.offset.y -= sin(t) * 20.0
+	char_fx.color = Color.ORANGE_RED.lerp(Color.YELLOW, sin(t))
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[mfire]Texto de ejemplo.[/mfire]`
+
+---
+
+## 95. Final Fantasy Cursor
+
+Un movimiento horizontal rítmico que emula el puntero de selección de los Final Fantasy clásicos.
+
+### 🖼️ Muestra:
+![95](https://github.com/user-attachments/assets/eea485eb-d5b8-4885-af74-f5e89dcd9d6e)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextFF
+extends RichTextEffect
+
+var bbcode = "ff"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	char_fx.offset.x += sin(char_fx.elapsed_time * 5.0) * 10.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[ff]Texto de ejemplo.[/ff]`
+
+---
+
+## 96. Splatoon Ink (Tinta)
+
+Las letras se deforman elásticamente y "gotean" hacia abajo, simulando la viscosidad de la tinta.
+
+### 🖼️ Muestra:
+![96](https://github.com/user-attachments/assets/da439293-adbb-4896-8670-a18c8e156196)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextInk
+extends RichTextEffect
+
+var bbcode = "ink"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = char_fx.elapsed_time + char_fx.relative_index * 0.2
+	char_fx.transform = char_fx.transform.scaled_local(Vector2(1.0 + sin(t)*0.1, 1.0 - sin(t)*0.1))
+	char_fx.offset.y += abs(sin(t)) * 5.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[ink]Texto de ejemplo.[/ink]`
+
+---
+
+## 97. Black Hole (Agujero Negro)
+
+Efecto de gravedad donde las letras son succionadas hacia el centro del texto y pierden opacidad.
+
+### 🖼️ Muestra:
+![97](https://github.com/user-attachments/assets/e88f5a3c-c5f3-4ba8-ade0-2c9286a2bdcf)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextVoid
+extends RichTextEffect
+
+var bbcode = "void"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var center = char_fx.glyph_count / 2.0
+	var diff = center - char_fx.relative_index
+	char_fx.offset.x += diff * sin(char_fx.elapsed_time) * 5.0
+	char_fx.color.a = clamp(1.0 - abs(diff/center), 0.2, 1.0)
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[void]Texto de ejemplo.[/void]`
+
+---
+
+## 98. DNA Helix (Hélice)
+
+Las letras se cruzan en un movimiento vertical entrelazado que simula la estructura de una cadena de ADN.
+
+### 🖼️ Muestra:
+![98](https://github.com/user-attachments/assets/aab8609f-44f2-46c1-9c19-9158addddcec)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextDNA
+extends RichTextEffect
+
+var bbcode = "dna"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = char_fx.elapsed_time * 3.0 + char_fx.relative_index * 0.5
+	char_fx.offset.y = sin(t) * 15.0
+	char_fx.color.a = clamp(cos(t), 0.3, 1.0)
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[dna]Texto de ejemplo.[/dna]`
+
+---
+
+## 99. Ghost Writer (Escritor Fantasma)
+
+Las letras aparecen y desaparecen con un desvanecimiento suave y un ligero movimiento vertical.
+
+### 🖼️ Muestra:
+![99](https://github.com/user-attachments/assets/ac5a77c3-909a-4d1d-a263-931962587983)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextGhostW
+extends RichTextEffect
+
+var bbcode = "gwrite"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = sin(char_fx.elapsed_time * 2.0 + char_fx.relative_index)
+	char_fx.color.a = smoothstep(-0.5, 0.5, t)
+	char_fx.offset.y -= (1.0 - char_fx.color.a) * 10.0
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[gwrite]Texto de ejemplo.[/gwrite]`
+
+---
+
+## 100. Supernova (Explosión)
+
+Un estallido de brillo blanco que se transforma en un ciclo de colores vibrantes a gran escala.
+
+### 🖼️ Muestra:
+![100](https://github.com/user-attachments/assets/718205c8-a8a4-4f96-a71d-bb495cd7dd07)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextNova
+extends RichTextEffect
+
+var bbcode = "nova"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var p = fmod(char_fx.elapsed_time, 2.0)
+	if p < 0.5:
+		char_fx.color = Color.WHITE * 5.0
+		char_fx.transform = char_fx.transform.scaled_local(Vector2(1.5, 1.5))
+	else:
+		char_fx.color = Color.from_hsv(p, 0.8, 1.0)
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[nova]Texto de ejemplo.[/nova]`
+
+---
+
+## 101. Matrix Neo (Código)
+
+Lluvia de caracteres con parpadeo verde binario que termina estabilizándose en el texto final.
+
+### 🖼️ Muestra:
+![101](https://github.com/user-attachments/assets/d153783e-1379-40e9-9df4-859ac3f3c655)
+
+### 💻 Codigo:
+```gdscript
+@tool
+class_name RichTextNeo
+extends RichTextEffect
+
+var bbcode = "neo"
+
+func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	var t = fmod(char_fx.elapsed_time, 3.0)
+	if t < 2.0:
+		char_fx.color = Color(0, randf(), 0, 1)
+		char_fx.offset.y += randf_range(-2, 2)
+	else:
+		char_fx.color = Color.GREEN
+	return true
+```
+
+### 📊 Parámetros de Configuración
+
+| Parámetro | Valor por Defecto | Descripción |
+| :--- | :---: | :--- |
+| **N/A** | `N/A` | No requiere parámetros adicionales. |
+
+> **Ejemplo de uso:**
+> `[neo]Texto de ejemplo.[/neo]`
