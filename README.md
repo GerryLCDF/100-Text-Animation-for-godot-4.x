@@ -8,6 +8,11 @@ Remember that this is a free resource. If you decide to use it in any of your pr
 https://youtu.be/t_KPnAE53gI
 ---
 
+### ☕ Support the project
+If you find this resource useful, please consider supporting my work by buying me a coffee. Your support helps me keep creating more free animations for the community!
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/gerardom86682)
+
 ## 1. Fade In (Smooth Appearance)
 
 ### 🖼️ Preview:
