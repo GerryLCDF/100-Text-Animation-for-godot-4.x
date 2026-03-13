@@ -8,6 +8,11 @@ Recuerda que esto es un recurso gratuito. Si decides utilizarlo en alguno de tus
 https://youtu.be/t_KPnAE53gI
 ---
 
+### ☕ Apoya el proyecto
+Si este recurso te ha sido útil, considera apoyarme invitándome a un café. ¡Tu ayuda me permite seguir creando más animaciones gratuitas!
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/gerardom86682)
+
 ## 1. Fade In (Aparición Suave)
 
 ### 🖼️ Muestra:
